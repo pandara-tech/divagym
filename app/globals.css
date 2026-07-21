@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-cairo), system-ui, sans-serif;
+  --font-sans: var(--font-cairo), system-ui, sans-serif;
+  
+  /* Luxury Diva theme colors (rose gold, soft warm pinks, and rich dark berries) */
+  --color-brand-50: #fdf2f4;
+  --color-brand-100: #fbe5e9;
+  --color-brand-200: #f7ccd5;
+  --color-brand-300: #f0a3b4;
+  --color-brand-400: #e5728f;
+  --color-brand-500: #d44369;
+  --color-brand-600: #be2951;
+  --color-brand-700: #9f1b3e;
+  --color-brand-800: #841936;
+  --color-brand-900: #701831;
+  --color-brand-950: #3f0917;
+
+  --color-gold-50: #fbf8f1;
+  --color-gold-100: #f5eedb;
+  --color-gold-200: #e9dbae;
+  --color-gold-300: #dac378;
+  --color-gold-400: #caa74a;
+  --color-gold-500: #b5903b;
+  --color-gold-600: #9d7730;
+  --color-gold-700: #815d27;
+  --color-gold-800: #694b23;
+  --color-gold-900: #573e1f;
+}
+
+/* Custom styles for animations and smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
