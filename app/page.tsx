@@ -398,6 +398,7 @@ export default function DivaGymApp() {
                 onClick={() => {
                   setActiveTab(link.id as any);
                   setMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeTab === link.id
@@ -484,6 +485,7 @@ export default function DivaGymApp() {
                   onClick={() => {
                     setActiveTab(link.id as any);
                     setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                   className={`w-full text-right rtl:text-right px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between ${
                     activeTab === link.id
