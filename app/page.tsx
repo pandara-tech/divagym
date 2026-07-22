@@ -465,13 +465,13 @@ export default function DivaGymApp() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/70 backdrop-blur-md border-b border-zinc-200/60"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 top-20 z-30 bg-white md:hidden"
             id="mobile-nav-drawer"
           >
-            <div className="px-4 pt-2 pb-6 space-y-1">
+            <div className="px-4 pt-4 pb-8 space-y-1 overflow-y-auto h-full">
               {[
                 { id: 'home', label: t.navHome },
                 { id: 'offers', label: t.navOffers },
@@ -487,7 +487,7 @@ export default function DivaGymApp() {
                     setMobileMenuOpen(false);
                     window.scrollTo(0, 0);
                   }}
-                  className={`w-full text-right rtl:text-right px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between ${
+                  className={`w-full text-right rtl:text-right px-5 py-4 rounded-xl text-base font-semibold transition-colors flex items-center justify-between ${
                     activeTab === link.id
                       ? 'bg-brand-600/10 text-brand-600'
                       : 'text-zinc-600 hover:text-brand-600 hover:bg-zinc-100/50'
