@@ -581,12 +581,11 @@ export default function DivaGymApp() {
 
               {/* Image Area */}
               <div className="lg:col-span-5 relative">
-                <div className="relative z-10 w-full aspect-[4/3] sm:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-600 shadow-brand-900/10">
+                <div className="relative z-10 w-full aspect-[4/3] sm:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src={img('/home.png')}
+                    src={img('/preview2.png')}
                     alt="Luxury Diva Gym Interior"
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
                     id="hero-image-display"
                   />
                   
