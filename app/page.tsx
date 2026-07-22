@@ -554,7 +554,7 @@ export default function DivaGymApp() {
                     {t.heroCtaJoin}
                   </button>
                   <button
-                    onClick={() => setActiveTab('contact')}
+                    onClick={() => { setActiveTab('contact'); window.scrollTo(0, 0); }}
                     className="px-8 py-4 rounded-full border-2 border-brand-600 text-brand-600 font-semibold text-center hover:bg-brand-50 active:scale-98 transition-all duration-200"
                     id="hero-contact-btn"
                   >
@@ -747,6 +747,7 @@ export default function DivaGymApp() {
                             : `${offer.name[lang]} hakkında bilgi almak ve kayıt olmak istiyorum.`
                         );
                         setActiveTab('contact');
+                        window.scrollTo(0, 0);
                       }}
                       className={`mt-6 w-full py-2.5 rounded-full font-semibold text-center text-xs transition-all ${
                         offer.id === 'monthly' && offerTimeLeft.days > 0
