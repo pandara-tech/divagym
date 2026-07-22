@@ -1044,7 +1044,7 @@ export default function DivaGymApp() {
                           {/* Main Text */}
                           <div className="bg-white border-2 border-brand-600/20 rounded-xl p-4">
                             <p className="text-sm text-zinc-600 leading-relaxed">
-                              {lang === 'ar' ? 'نوفر كراجًا مجانيًا وآمنًا لعضوات Diva Gym، لتستمتعي بتجربة مريحة منذ لحظة وصولك، دون عناء البحث عن موقف.' : lang === 'ku' ? 'گاراژێکی بەتاڵ و سەلامەت بۆ ئەندامانی دیڤا جیم دابین دەکەین، بۆ ئەوەی لە کاتی گەیشتنتەوە ئارامیت بێت بێ هیچ کێشەیەک.' : 'Diva Gym üyelerine ücretsiz ve güvenli bir garaj sunuyoruz, böylece varış anınızdan itibaren park yeri arama derdi olmadan konforlu bir deneyim yaşarsınız.'}
+                              {lang === 'ar' ? 'نوفر كراجاً مجانياً وآمناً لعضوات Diva Gym، لتستمتعي بتجربة مريحة منذ لحظة وصولك، دون عناء البحث عن موقف.' : lang === 'ku' ? 'گاراژێکی بەتاڵ و سەلامەت بۆ ئەندامانی دیڤا جیم دابین دەکەین، بۆ ئەوەی لە کاتی گەیشتنتەوە ئارامیت بێت بێ هیچ کێشەیەک.' : 'Diva Gym üyelerine ücretsiz ve güvenli bir garaj sunuyoruz, böylece varış anınızdan itibaren park yeri arama derdi olmadan konforlu bir deneyim yaşarsınız.'}
                             </p>
                           </div>
 
