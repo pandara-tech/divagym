@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Diva Gym
 
-# Run and deploy your AI Studio app
+Official multilingual website for Diva Gym, a premium women-only fitness center.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/9f44bdcb-fa2c-43ad-a37d-982b2769d047
+- Arabic, Kurdish, and Turkish language support
+- Interactive membership calculator
+- Working hours & class schedules
+- Services with detailed views
+- Training offers with live countdown timer
+- Contact form
+- Responsive design
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Run the app:
    `npm run dev`
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- Tailwind CSS
+- Framer Motion
+- Lucide Icons

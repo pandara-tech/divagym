@@ -1,6 +1,5 @@
 {
   "name": "Diva Gym",
   "description": "Official multilingual website for Diva Gym, a premium women-only fitness center, featuring an interactive membership calculator, working hours, services, training offers, and direct contact forms.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "requestFramePermissions": []
 }
