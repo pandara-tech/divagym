@@ -583,7 +583,7 @@ export default function DivaGymApp() {
               <div className="lg:col-span-5 relative">
                 <div className="relative z-10 w-full aspect-[4/3] sm:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-600 shadow-brand-900/10">
                   <img
-                    src={img('/preview.png')}
+                    src={img('/home.png')}
                     alt="Luxury Diva Gym Interior"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
@@ -1168,10 +1168,10 @@ export default function DivaGymApp() {
 
               <div className="lg:col-span-6 relative aspect-video sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-zinc-200 dark:border-zinc-800">
                 <img
-                  src="https://picsum.photos/seed/divalogo/800/600"
+                  src={img('/preview.png')}
                   alt="Diva Gym fitness atmosphere"
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
+                  id="about-image-display"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                   <div className="text-white space-y-1">
