@@ -1,5 +1,6 @@
 import type {Metadata} from 'next';
-import { Cairo } from 'next/font/google';
+import { Cairo, Great_Vibes } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css'; // Global styles
 
 const cairo = Cairo({
@@ -9,15 +10,31 @@ const cairo = Cairo({
   display: 'swap',
 });
 
+const greatVibes = Great_Vibes({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-great-vibes',
+  display: 'swap',
+});
+
+const kurdishFont = localFont({
+  src: '../kurdishfont.ttf',
+  variable: '--font-kurdish',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
-  title: 'Diva Gym - Premium Women\'s Fitness & Wellness',
+  title: 'Diva Gym',
   description: 'Diva Gym is a premium women-only fitness and wellness club offering state-of-the-art training, luxury spa, sauna, classes, and personalized nutrition plans.',
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`${cairo.variable}`}>
-      <body className="font-sans antialiased text-zinc-800 bg-zinc-50 dark:text-zinc-100 dark:bg-zinc-950 transition-colors duration-300" style={{ fontFamily: 'var(--font-cairo), system-ui, sans-serif' }} suppressHydrationWarning>
+    <html lang="en" className={`${cairo.variable} ${greatVibes.variable} ${kurdishFont.variable}`}>
+      <body className="font-sans antialiased text-zinc-800 bg-white" suppressHydrationWarning>
         {children}
       </body>
     </html>

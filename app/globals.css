@@ -42,3 +42,9 @@ html {
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
+
+/* Kurdish language font override */
+[data-lang="ku"],
+[data-lang="ku"] * {
+  font-family: var(--font-kurdish), var(--font-cairo), system-ui, sans-serif !important;
+}

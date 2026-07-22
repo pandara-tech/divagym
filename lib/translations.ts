@@ -192,7 +192,7 @@ export const translations: Record<Language, TranslationSet> = {
     hoursNoonZumba: 'رقص الزومبا اللاتيني الحماسي',
     hoursEveningCrossfit: 'تمارين الكروس فت والقوة المكثفة',
 
-    servicesTitle: 'خدماتنا الفاخرة',
+    servicesTitle: 'خدماتنا',
     servicesSubtitle: 'نقدم لكِ مجموعة متكاملة من الخدمات الرياضية والصحية تحت سقف واحد.',
     service1Name: 'التدريب الشخصي',
     service1Desc: 'برامج تدريبية مخصصة ومصممة من قبل مدربات محترفات لضمان تحقيق أهدافكِ بأمان.',

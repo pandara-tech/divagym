@@ -17,8 +17,6 @@ import {
   Check,
   ChevronDown,
   RefreshCw,
-  Sun,
-  Moon,
   Menu,
   X,
   Trash2,
@@ -26,7 +24,15 @@ import {
   UserCheck,
   MessageCircle,
   Calendar,
-  AlertCircle
+  AlertCircle,
+  Instagram,
+  Activity,
+  Users,
+  Flame,
+  Car,
+  Apple,
+  Baby,
+  ShoppingBag
 } from 'lucide-react';
 import { translations, Language } from '@/lib/translations';
 
@@ -73,14 +79,14 @@ const gymOffers = [
   {
     id: 'half_month',
     name: {
-      ar: 'اشتراك نصف شهر',
-      ku: 'بەشداری نیوەی مانگ',
-      tr: 'Yarım Aylık Üyelik'
+      ar: 'إشتراك نصف شهر',
+      ku: 'بەشداری نیو مانگ',
+      tr: 'Yarım Ay Üyelik'
     },
     details: {
-      ar: '15 يوم متتالي',
-      ku: '١٥ ڕۆژی لەسەریەک',
-      tr: 'Arka arkaya 15 gün kullanım'
+      ar: '15 يوم فقط',
+      ku: 'تەنها ١٥ ڕۆژ',
+      tr: 'Sadece 15 gün'
     },
     price: '25,000',
     priceVal: 25000,
@@ -93,23 +99,23 @@ const gymOffers = [
   {
     id: 'monthly',
     name: {
-      ar: 'الاشتراك الشهري',
-      ku: 'بەشداری مانگانە',
-      tr: 'Aylık Standart Üyelik'
+      ar: 'اشتراك شهري',
+      ku: 'پێشنیاری تایبەت - تەنها ١٠ ڕۆژ',
+      tr: 'Özel Fırsat - Sadece 10 Gün'
     },
     details: {
-      ar: 'شهر كامل',
-      ku: 'یەک مانگی تەواو',
-      tr: '1 tam ay boyunca kullanım'
+      ar: 'month',
+      ku: 'مانگ',
+      tr: 'ay'
     },
-    price: '50,000',
-    priceVal: 50000,
+    price: '35,000',
+    originalPrice: '50,000',
+    priceVal: 35000,
     features: {
       ar: ['دخول غير محدود طوال الشهر للصالة', 'حضور الحصص الجماعية (اليوغا، الزومبا...)', 'تحليل تركيب الجسم بجهاز InBody'],
       ku: ['چوونەژوورەوەی بێ سنوور بە درێژایی مانگ', 'بەشداری لە وانە بەکۆمەڵەکان (یۆگا، زومبا)', 'پشکنینی پێکهاتەی جەستە بە ئامێری InBody'],
       tr: ['Ay boyunca sınırsız salon erişimi', 'Tüm grup derslerine (Yoga, Zumba) katılım', 'InBody cihazı ile detaylı vücut analizi']
-    },
-    popular: true
+    }
   },
   {
     id: 'three_months',
@@ -123,8 +129,8 @@ const gymOffers = [
       ku: 'پێشنیاری تایبەت',
       tr: 'Özel fiyat avantajı'
     },
-    price: '130,000',
-    priceVal: 130000,
+    price: '120,000',
+    priceVal: 120000,
     features: {
       ar: ['توفير كبير مقارنة بالدفع الشهري', 'دخول غير محدود لجميع المرافق المائية والساونا', 'استشارتان غذائيتان مع أخصائية التغذية', 'خطة تدريبية متكاملة مخصصة لمستوى لياقتكِ'],
       ku: ['داشکانێکی زۆر بەراورد بە مانگانە', 'چوونەژوورەوە بۆ هەموو مەلەوانگە و ساوناکان', '٢ ڕاوێژکاری خۆراکی لەگەڵ پسپۆڕ', 'پڕۆگرامی مەشقی گشتگیر بەپێی ئاستی خۆت'],
@@ -139,9 +145,9 @@ const gymOffers = [
       tr: 'Arkadaş Grubu Kampanyası'
     },
     details: {
-      ar: 'لكل مشتركة',
-      ku: 'بۆ هەر بەشداربوویەک',
-      tr: 'Kişi başı indirimli fiyat'
+      ar: 'الأكثر طلباً',
+      ku: 'زۆرترین داواکاری',
+      tr: 'En Popüler'
     },
     price: '40,000',
     priceVal: 40000,
@@ -149,7 +155,8 @@ const gymOffers = [
       ar: ['خصم خاص عند التسجيل المشترك مع صديقاتكِ', 'دخول كامل ومستمر لجميع الأجهزة والصفوف', 'مشاركة متعة اللياقة والتحفيز المتبادل'],
       ku: ['داشکاندنی تایبەت لەکاتی خۆتۆمارکردن لەگەڵ هاوڕێکانت', 'چوونەژوورەوەی تەواو بۆ ئامێر و وانەکان', 'بەشکردنی چێژی وەرزشکردن پێکەوە'],
       tr: ['Arkadaşlarınızla birlikte kayıtta özel fiyat', 'Tüm ekipman ve grup derslerine sınırsız erişim', 'Grup motivasyonu ile eğlenceli fitness deneyimi']
-    }
+    },
+    popular: true
   },
   {
     id: 'family',
@@ -159,9 +166,9 @@ const gymOffers = [
       tr: 'Aile Paketi Fırsatı'
     },
     details: {
-      ar: 'لكل مشتركة',
-      ku: 'بۆ هەر ئەندامێکی خێزان',
-      tr: 'Aile bireylerine özel kişi başı fiyat'
+      ar: 'لـ 4 أعضاء فما فوق',
+      ku: 'بۆ ٤ ئەندام و زیاتر',
+      tr: '4 ve üzeri üye için'
     },
     price: '35,000',
     priceVal: 35000,
@@ -176,7 +183,6 @@ const gymOffers = [
 export default function DivaGymApp() {
   // --- States ---
   const [lang, setLang] = useState<Language>('ar');
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [activeTab, setActiveTab] = useState<'home' | 'offers' | 'hours' | 'services' | 'about' | 'contact'>('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -194,6 +200,34 @@ export default function DivaGymApp() {
   // Active Service Card details popup
   const [activeServiceDetails, setActiveServiceDetails] = useState<number | null>(null);
 
+  // Monthly offer countdown timer
+  const [offerTimeLeft, setOfferTimeLeft] = useState(() => {
+    const endDate = new Date('2026-08-01T00:00:00');
+    const now = new Date();
+    const diff = Math.max(0, endDate.getTime() - now.getTime());
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((diff % (1000 * 60)) / 1000)
+    };
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const endDate = new Date('2026-08-01T00:00:00');
+      const now = new Date();
+      const diff = Math.max(0, endDate.getTime() - now.getTime());
+      setOfferTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((diff % (1000 * 60)) / 1000)
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   // Contact Form States
   const [formName, setFormName] = useState('');
   const [formPhone, setFormPhone] = useState('');
@@ -202,14 +236,9 @@ export default function DivaGymApp() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [contactSubmissions, setContactSubmissions] = useState<Submission[]>([]);
 
-  // Load saved configurations on mount
+  // Load saved submissions on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('diva-gym-theme') as 'light' | 'dark' | null;
-      if (savedTheme) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setTheme(savedTheme);
-      }
       const saved = localStorage.getItem('diva-gym-submissions');
       if (saved) {
         try {
@@ -221,17 +250,7 @@ export default function DivaGymApp() {
     }
   }, []);
 
-  // Save theme to localStorage and set HTML class
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('diva-gym-theme', theme);
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    }
-  }, [theme]);
+
 
   // --- Subscriptions Calculator Formula (Adapted for IQD) ---
   const calculateSubscriptionPrice = () => {
@@ -340,33 +359,27 @@ export default function DivaGymApp() {
 
   return (
     <div 
-      className={`min-h-screen font-sans ${theme === 'dark' ? 'bg-zinc-950 text-zinc-100' : 'bg-zinc-50 text-zinc-800'}`} 
+      className="min-h-screen bg-white text-zinc-800" 
+      data-lang={lang}
       dir={t.dir}
       id="diva-app-root"
     >
 
 
       {/* --- HEADER --- */}
-      <header className="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-zinc-900/80 border-b border-zinc-200/60 dark:border-zinc-800/60 transition-colors duration-300">
+      <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-md border-b border-zinc-200/60 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Logo */}
           <div 
-            className="flex items-center space-x-3 cursor-pointer rtl:space-x-reverse" 
+            className="flex items-center gap-5 cursor-pointer" 
             onClick={() => setActiveTab('home')}
             id="header-logo-container"
           >
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-600 to-gold-400 flex items-center justify-center text-white shadow-md shadow-brand-500/10">
-              <Dumbbell className="w-5 h-5 text-white animate-pulse" />
-            </div>
-            <div>
-              <span className="font-display text-2xl font-bold tracking-tight bg-gradient-to-r from-brand-600 via-brand-500 to-gold-500 bg-clip-text text-transparent">
-                Diva Gym
-              </span>
-              <p className="text-[9px] uppercase tracking-widest text-zinc-400 font-bold leading-none mt-0.5">
-                {lang === 'ar' ? 'للنساء فقط' : lang === 'ku' ? 'تەنها بۆ خانمان' : 'WOMEN ONLY'}
-              </p>
-            </div>
+            <img src="/icon.png" alt="Diva Gym" className="w-10 h-10 object-contain" />
+            <span className="text-2xl tracking-tight text-brand-600" style={{ fontFamily: 'var(--font-great-vibes), cursive' }}>
+              Diva Gym
+            </span>
           </div>
 
           {/* Desktop Navigation Links */}
@@ -387,8 +400,8 @@ export default function DivaGymApp() {
                 }}
                 className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeTab === link.id
-                    ? 'bg-brand-50 text-brand-700 dark:bg-brand-950/40 dark:text-brand-300'
-                    : 'text-zinc-600 dark:text-zinc-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/40'
+                    ? 'bg-brand-600/10 text-brand-600'
+                    : 'text-zinc-600 hover:text-brand-600 hover:bg-zinc-100/50'
                 }`}
                 id={`nav-link-${link.id}`}
               >
@@ -400,40 +413,32 @@ export default function DivaGymApp() {
           {/* Controls: Theme, Language, Mobile Menu */}
           <div className="flex items-center space-x-2 sm:space-x-3 rtl:space-x-reverse" id="controls-panel">
             
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              className="p-2 rounded-full text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-              aria-label="Toggle Theme"
-              id="theme-toggle-btn"
-            >
-              {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-            </button>
+
 
             {/* Language Dropdown */}
             <div className="relative group">
-              <button className="flex items-center space-x-1 rtl:space-x-reverse px-2.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-700 hover:border-brand-300 dark:hover:border-brand-800 bg-white dark:bg-zinc-800 text-xs font-semibold transition-colors">
-                <span>🌐 {lang === 'ar' ? 'العربية' : lang === 'ku' ? 'کوردی' : 'Türkçe'}</span>
+              <button className="flex items-center space-x-1 rtl:space-x-reverse px-2.5 py-1.5 rounded-full border border-zinc-300 hover:border-brand-600 text-xs font-semibold text-zinc-600 hover:text-brand-600 transition-colors">
+                <span>🌐 {lang === 'ar' ? 'العربية' : lang === 'ku' ? 'کوردی سۆرانی' : 'Türkçe'}</span>
                 <ChevronDown className="w-3 h-3 text-zinc-400 group-hover:rotate-180 transition-transform duration-300" />
               </button>
               
-              <div className="absolute right-0 rtl:left-0 rtl:right-auto mt-2 w-32 bg-white dark:bg-zinc-800 rounded-xl shadow-lg border border-zinc-200 dark:border-zinc-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="absolute right-0 rtl:left-0 rtl:right-auto mt-2 w-32 bg-white rounded-xl shadow-lg border-2 border-brand-600 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="p-1">
                   <button
                     onClick={() => setLang('ar')}
-                    className={`w-full text-right rtl:text-right px-3 py-2 rounded-lg text-xs font-medium hover:bg-brand-50 dark:hover:bg-brand-950/20 hover:text-brand-700 dark:hover:text-brand-300 ${lang === 'ar' ? 'bg-brand-50/70 dark:bg-brand-950/30 text-brand-600' : ''}`}
+                    className={`w-full text-right rtl:text-right px-3 py-2 rounded-lg text-xs font-medium text-zinc-700 hover:bg-brand-600/5 hover:text-brand-600 ${lang === 'ar' ? 'bg-brand-600/10 text-brand-600' : ''}`}
                   >
                     العربية (AR)
                   </button>
                   <button
                     onClick={() => setLang('ku')}
-                    className={`w-full text-right rtl:text-right px-3 py-2 rounded-lg text-xs font-medium hover:bg-brand-50 dark:hover:bg-brand-950/20 hover:text-brand-700 dark:hover:text-brand-300 ${lang === 'ku' ? 'bg-brand-50/70 dark:bg-brand-950/30 text-brand-600' : ''}`}
+                    className={`w-full text-right rtl:text-right px-3 py-2 rounded-lg text-xs font-medium text-zinc-700 hover:bg-brand-600/5 hover:text-brand-600 ${lang === 'ku' ? 'bg-brand-600/10 text-brand-600' : ''}`}
                   >
-                    کوردی (KU)
+                    کوردی سۆرانی (KU)
                   </button>
                   <button
                     onClick={() => setLang('tr')}
-                    className={`w-full text-left rtl:text-left px-3 py-2 rounded-lg text-xs font-medium hover:bg-brand-50 dark:hover:bg-brand-950/20 hover:text-brand-700 dark:hover:text-brand-300 ${lang === 'tr' ? 'bg-brand-50/70 dark:bg-brand-950/30 text-brand-600' : ''}`}
+                    className={`w-full text-left rtl:text-left px-3 py-2 rounded-lg text-xs font-medium text-zinc-700 hover:bg-brand-600/5 hover:text-brand-600 ${lang === 'tr' ? 'bg-brand-600/10 text-brand-600' : ''}`}
                   >
                     Türkçe (TR)
                   </button>
@@ -444,7 +449,7 @@ export default function DivaGymApp() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-full text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              className="md:hidden p-2 rounded-full text-zinc-600 hover:text-brand-600 hover:bg-zinc-100/50"
               aria-label="Open Menu"
               id="mobile-menu-toggle"
             >
@@ -461,7 +466,7 @@ export default function DivaGymApp() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
+            className="md:hidden bg-white/70 backdrop-blur-md border-b border-zinc-200/60"
             id="mobile-nav-drawer"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
@@ -481,8 +486,8 @@ export default function DivaGymApp() {
                   }}
                   className={`w-full text-right rtl:text-right px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between ${
                     activeTab === link.id
-                      ? 'bg-brand-100 text-brand-800 dark:bg-brand-950 dark:text-brand-200'
-                      : 'text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                      ? 'bg-brand-600/10 text-brand-600'
+                      : 'text-zinc-600 hover:text-brand-600 hover:bg-zinc-100/50'
                   }`}
                 >
                   <span>{link.label}</span>
@@ -495,39 +500,46 @@ export default function DivaGymApp() {
 
       {/* --- MAIN PAGE CONTENT --- */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12" id="main-content-flow">
-        
+        <AnimatePresence mode="wait">
         {/* --- SECTION: HOME --- */}
         {activeTab === 'home' && (
-          <div className="space-y-16 animate-fade-in" id="section-home">
+          <motion.div 
+            key="home"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="space-y-16" id="section-home"
+          >
             
             {/* Split Hero Section */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Text Area */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center space-x-2 rtl:space-x-reverse px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-xs font-semibold">
-                  <Sparkles className="w-4.5 h-4.5 text-gold-500 animate-pulse" />
-                  <span>{t.heroSubtitle}</span>
-                </div>
-                
+
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                   {lang === 'ar' ? (
                     <>
-                      اصنعي قوتكِ في <span className="text-brand-600 dark:text-brand-400">ديڤا جيم</span>
+                      اصنعي قوتكِ في<br />
+                      <span className="text-gold-500 text-[1.95em] sm:text-[1.95em] lg:text-[1.95em]">ديڤا جيم</span>
                     </>
                   ) : lang === 'ku' ? (
                     <>
-                      هێزی خۆت دروستبکە لە <span className="text-brand-600 dark:text-brand-400">دیڤا جیم</span>
+                      <span className="text-[0.89em]">هێزی خۆت دروستبکە لە</span><br />
+                      <span className="text-gold-500 text-[2.5em] sm:text-[2.5em] lg:text-[2.5em]">دیڤا جیم</span>
                     </>
                   ) : (
                     <>
-                      Kendi Gücünü <span className="text-brand-600 dark:text-brand-400">Diva Gym</span> ile Keşfet
+                      Kendi Gücünü <span className="text-gold-500">Diva Gym</span> ile Keşfet
                     </>
                   )}
                 </h1>
 
-                <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-xl">
-                  {t.heroTagline}
+                <p className="text-base sm:text-lg text-black font-semibold leading-relaxed max-w-xl">
+                  {lang === 'ar' ? (
+                    <>النادي النسائي الفاخر والأول من نوعه. ارتقِ بقوتك وصحتك<br />وروحك في مساحة مصممة خصيصاً لأجلك.</>
+                  ) : t.heroTagline}
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
@@ -540,25 +552,17 @@ export default function DivaGymApp() {
                   </button>
                   <button
                     onClick={() => setActiveTab('contact')}
-                    className="px-8 py-4 rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-gold-500 text-white font-semibold text-center hover:shadow-lg hover:shadow-brand-500/20 active:scale-98 transition-all duration-200"
+                    className="px-8 py-4 rounded-full border-2 border-brand-600 text-brand-600 font-semibold text-center hover:bg-brand-50 active:scale-98 transition-all duration-200"
                     id="hero-contact-btn"
                   >
                     {t.navContact}
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('services')}
-                    className="px-8 py-4 rounded-full border-2 border-zinc-200 dark:border-zinc-800 hover:border-brand-300 dark:hover:border-brand-800 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 font-semibold text-center flex items-center justify-center space-x-2 rtl:space-x-reverse transition-all duration-200"
-                    id="hero-services-btn"
-                  >
-                    <Dumbbell className="w-4 h-4 text-brand-500" />
-                    <span>{t.navServices}</span>
                   </button>
                 </div>
 
                 {/* Micro social proofs */}
                 <div className="pt-6 grid grid-cols-3 gap-4 border-t border-zinc-200/60 dark:border-zinc-800/60 max-w-lg">
                   <div>
-                    <span className="font-display text-2xl font-black text-brand-600 dark:text-brand-400">1200+</span>
+                    <span className="font-display text-2xl font-black text-brand-600 dark:text-brand-400">992+</span>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">{lang === 'ar' ? 'عضو نشط' : lang === 'ku' ? 'ئەندامی چالاک' : 'Aktif Üye'}</p>
                   </div>
                   <div>
@@ -566,7 +570,7 @@ export default function DivaGymApp() {
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">{lang === 'ar' ? 'خصوصية وأمان' : lang === 'ku' ? 'نهێنی و سەلامەتی' : 'Mahremiyet'}</p>
                   </div>
                   <div>
-                    <span className="font-display text-2xl font-black text-brand-600 dark:text-brand-400">15+</span>
+                    <span className="font-display text-2xl font-black text-brand-600 dark:text-brand-400">5+</span>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">{lang === 'ar' ? 'مدربة معتمدة' : lang === 'ku' ? 'ڕاهێنەری باوەڕپێکراو' : 'Kadın Antrenör'}</p>
                   </div>
                 </div>
@@ -574,9 +578,9 @@ export default function DivaGymApp() {
 
               {/* Image Area */}
               <div className="lg:col-span-5 relative">
-                <div className="relative z-10 w-full aspect-[4/3] sm:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-900 shadow-brand-900/10 dark:shadow-black/50">
+                <div className="relative z-10 w-full aspect-[4/3] sm:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-600 shadow-brand-900/10">
                   <img
-                    src="/images/gym_interior_hero.jpg"
+                    src="/preview.png"
                     alt="Luxury Diva Gym Interior"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
@@ -586,14 +590,6 @@ export default function DivaGymApp() {
                   {/* Subtle Gold/Pink Ambient Layer */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                   
-                  {/* Absolute Badge on Gym Interior */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md p-4 rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between">
-                    <div>
-                      <h4 className="font-display text-sm font-bold">{t.heroTitle}</h4>
-                      <p className="text-[10px] text-zinc-500 dark:text-zinc-400">{lang === 'ar' ? 'صالة الألعاب الرياضية الفاخرة المعتمدة' : lang === 'ku' ? 'هۆڵی وەرزشی شاهانەی باوەڕپێکراو' : 'Premium Kadın Sağlık Kulübü'}</p>
-                    </div>
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-gold-100 text-gold-800 font-bold">5 ★★★★★</span>
-                  </div>
                 </div>
                 
                 {/* Decorative backgrounds */}
@@ -602,63 +598,20 @@ export default function DivaGymApp() {
               </div>
             </div>
 
-            {/* Working Hours Card - Always visible on home */}
-            <div className="p-5 md:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 shadow-sm">
-              <div className="flex items-center space-x-3 rtl:space-x-reverse text-brand-600 dark:text-brand-400 mb-4">
-                <Clock className="w-5 h-5" />
-                <h3 className="font-display font-bold text-base">{lang === 'ar' ? 'ساعات العمل' : lang === 'ku' ? 'کاتی کار' : 'Çalışma Saatleri'}</h3>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                <div className="flex justify-between items-center py-2 px-3 bg-zinc-50 dark:bg-zinc-950 rounded-lg">
-                  <span className="text-xs font-bold text-zinc-500 dark:text-zinc-400">{lang === 'ar' ? 'طوال الأسبوع' : lang === 'ku' ? 'هەموو ڕۆژەکان' : 'Hafta İçi'}</span>
-                  <span className="text-sm font-semibold">09:00 - 22:00</span>
-                </div>
-                <div className="flex justify-between items-center py-2 px-3 bg-zinc-50 dark:bg-zinc-950 rounded-lg">
-                  <span className="text-xs font-bold text-zinc-500 dark:text-zinc-400">{lang === 'ar' ? 'السبت' : lang === 'ku' ? 'شەممە' : 'Cumartesi'}</span>
-                  <span className="text-sm font-semibold">14:00 - 15:00</span>
-                </div>
-              </div>
-            </div>
 
-            {/* Feature Three-Column Grid */}
-            <div className="py-8 border-t border-b border-zinc-200/60 dark:border-zinc-800/60">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[
-                  {
-                    title: t.heroFeature1Title,
-                    desc: t.heroFeature1Desc,
-                    icon: <Shield className="w-6 h-6 text-brand-600" />
-                  },
-                  {
-                    title: t.heroFeature2Title,
-                    desc: t.heroFeature2Desc,
-                    icon: <Award className="w-6 h-6 text-brand-600" />
-                  },
-                  {
-                    title: t.heroFeature3Title,
-                    desc: t.heroFeature3Desc,
-                    icon: <Sparkles className="w-6 h-6 text-brand-600" />
-                  }
-                ].map((feat, idx) => (
-                  <div key={idx} className="flex items-start space-x-4 rtl:space-x-reverse" id={`hero-feature-card-${idx}`}>
-                    <div className="p-3 bg-brand-50 dark:bg-brand-950/40 rounded-xl">
-                      {feat.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-display font-bold text-base">{feat.title}</h3>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">{feat.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
+          </motion.div>
         )}
 
         {/* --- SECTION: OFFERS & SUBSCRIPTIONS --- */}
         {activeTab === 'offers' && (
-          <div className="space-y-12 animate-fade-in" id="section-offers">
+          <motion.div 
+            key="offers"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="space-y-12" id="section-offers"
+          >
             
             {/* Titles */}
             <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -673,17 +626,19 @@ export default function DivaGymApp() {
             {/* Dynamic Gym Offers Tiers */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch" id="pricing-tiers-grid">
               {gymOffers.map((offer) => {
-                const isPopular = offer.id === 'monthly';
+                const isPopular = offer.id === 'friends';
                 const isSpecial = offer.id === 'family' || offer.id === 'friends' || offer.id === 'three_months';
                 return (
                   <div 
                     key={offer.id}
-                    className={`flex flex-col rounded-2xl bg-white dark:bg-zinc-900 p-8 shadow-sm hover:shadow-md transition-all duration-300 relative ${
-                      isPopular 
-                        ? 'border-2 border-brand-500 scale-[1.01] shadow-md hover:shadow-brand-500/5' 
-                        : isSpecial
-                          ? 'border border-gold-300 dark:border-gold-800'
-                          : 'border border-zinc-200/60 dark:border-zinc-800/60'
+                    className={`flex flex-col rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 relative ${
+                      offer.id === 'monthly' && offerTimeLeft.days > 0
+                        ? 'bg-gradient-to-b from-red-50 via-white to-white border-2 border-red-400 shadow-md'
+                        : isPopular 
+                          ? 'bg-white border-2 border-brand-600 scale-[1.01] shadow-md' 
+                          : isSpecial
+                            ? 'bg-white border-2 border-gold-500'
+                            : 'bg-white border-2 border-brand-600/30'
                     }`}
                     id={`offer-card-${offer.id}`}
                   >
@@ -702,44 +657,83 @@ export default function DivaGymApp() {
                         👭 {lang === 'ar' ? 'عرض الصديقات' : lang === 'ku' ? 'ئۆفەری هاوڕێیان' : 'Arkadaş Grubu'}
                       </div>
                     )}
+                    {offer.id === 'monthly' && offerTimeLeft.days > 0 && (
+                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-red-500 text-white text-[10px] uppercase font-extrabold tracking-widest whitespace-nowrap">
+                        🎁 {lang === 'ar' ? 'عرض محدود' : lang === 'ku' ? 'پێشنیاری سنووردار' : 'Süreli Fırsat'}
+                      </div>
+                    )}
 
-                    <div className="mb-6">
-                      <h3 className="font-display text-lg font-bold text-zinc-900 dark:text-zinc-100">{offer.name[lang]}</h3>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{offer.details[lang]}</p>
-                    </div>
+                    {offer.id === 'monthly' && offerTimeLeft.days > 0 ? (
+                      <>
+                        <div className="mb-5 flex items-center justify-center gap-2">
+                          <span className="text-xl font-bold text-zinc-800">🎁</span>
+                          <h3 className="font-display text-lg font-bold text-zinc-900">{offer.name[lang]}</h3>
+                        </div>
+                        <div className="mb-5">
+                          <div className="flex items-center justify-center gap-3">
+                            <span className="text-3xl font-black tracking-tight text-red-500">{offer.price}</span>
+                            <span className="text-zinc-500 text-xs font-bold">{t.subCurrencySymbol} / {lang === 'ar' ? 'شهر' : lang === 'ku' ? 'مانگ' : 'ay'}</span>
+                          </div>
+                          <div className="flex items-center justify-center gap-2 mt-1">
+                            <span className="relative inline-block text-sm text-zinc-400">{offer.originalPrice}<span className="absolute inset-0 w-full h-full" style={{ background: 'linear-gradient(to bottom right, transparent 48%, #a1a1aa 49%, #a1a1aa 51%, transparent 52%)' }}></span></span>
+                            <span className="text-xs font-bold text-red-500" dir="ltr">-{Math.round((1 - 35000 / 50000) * 100)}%</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-center gap-3 py-3 mb-5 border-y border-red-100" style={{ direction: 'ltr' }}>
+                          <span className="text-2xl font-black text-red-500 tabular-nums">{String(offerTimeLeft.days).padStart(2, '0')}</span>
+                          <span className="text-red-300 font-bold text-xl">:</span>
+                          <span className="text-2xl font-black text-red-500 tabular-nums">{String(offerTimeLeft.hours).padStart(2, '0')}</span>
+                          <span className="text-red-300 font-bold text-xl">:</span>
+                          <span className="text-2xl font-black text-red-500 tabular-nums">{String(offerTimeLeft.minutes).padStart(2, '0')}</span>
+                          <span className="text-red-300 font-bold text-xl">:</span>
+                          <span className="text-2xl font-black text-red-500 tabular-nums">{String(offerTimeLeft.seconds).padStart(2, '0')}</span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="mb-6">
+                          <h3 className="font-display text-lg font-bold text-zinc-900">{offer.name[lang]}</h3>
+                        </div>
+                        <div className="mb-6 flex items-baseline">
+                          <span className={`text-3xl font-black tracking-tight ${
+                            isPopular ? 'text-brand-600' : isSpecial ? 'text-gold-600' : 'text-brand-600'
+                          }`}>
+                            {offer.price}
+                          </span>
+                          <span className="text-zinc-400 text-xs ml-1.5 mr-1.5 font-bold">{t.subCurrencySymbol}</span>
+                          <span className="text-zinc-400 text-xs font-normal">
+                            / {offer.id === 'daily' 
+                              ? (lang === 'ar' ? 'يوم' : lang === 'ku' ? 'ڕۆژ' : 'gün') 
+                              : offer.id === 'half_month'
+                                ? (lang === 'ar' ? '15 يوم' : lang === 'ku' ? '١٥ ڕۆژ' : '15 gün')
+                                : offer.id === 'three_months'
+                                  ? (lang === 'ar' ? '3 أشهر' : lang === 'ku' ? '٣ مانگ' : '3 ay')
+                                  : (lang === 'ar' ? 'شهر' : lang === 'ku' ? 'مانگ' : 'ay')}
+                          </span>
+                        </div>
+                      </>
+                    )}
 
-                    <div className="mb-6 flex items-baseline">
-                      <span className={`text-3xl font-black tracking-tight ${
-                        isPopular 
-                          ? 'bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent' 
-                          : isSpecial
-                            ? 'text-gold-600 dark:text-gold-400'
-                            : 'text-brand-600 dark:text-brand-400'
-                      }`}>
-                        {offer.price}
-                      </span>
-                      <span className="text-zinc-400 text-xs ml-1.5 mr-1.5 font-bold">{t.subCurrencySymbol}</span>
-                      <span className="text-zinc-400 text-xs font-normal">
-                        / {offer.id === 'daily' 
-                          ? (lang === 'ar' ? 'يوم' : lang === 'ku' ? 'ڕۆژ' : 'gün') 
-                          : offer.id === 'half_month'
-                            ? (lang === 'ar' ? '15 يوم' : lang === 'ku' ? '١٥ ڕۆژ' : '15 gün')
-                            : offer.id === 'three_months'
-                              ? (lang === 'ar' ? '3 أشهر' : lang === 'ku' ? '٣ مانگ' : '3 ay')
-                              : (lang === 'ar' ? 'شهر' : lang === 'ku' ? 'مانگ' : 'ay')}
-                      </span>
-                    </div>
+                    {offer.id === 'half_month' && (
+                      <div className="mb-4 flex items-center gap-2 text-xs text-zinc-600">
+                        <Check className="w-4 h-4 text-brand-600 shrink-0" />
+                        <span>{lang === 'ar' ? '15 يوم متتالي فقط' : lang === 'ku' ? 'تەنها ١٥ ڕۆژی لەسەریەک' : 'Sadece arka arkaya 15 gün'}</span>
+                      </div>
+                    )}
+                    {offer.id === 'family' && (
+                      <div className="mb-4 flex items-center gap-2 text-xs text-zinc-600">
+                        <Check className="w-4 h-4 text-gold-500 shrink-0" />
+                        <span>{lang === 'ar' ? 'لـ 4 أعضاء فما فوق' : lang === 'ku' ? 'بۆ ٤ ئەندام و زیاتر' : '4 ve üzeri üye için'}</span>
+                      </div>
+                    )}
+                    {offer.id === 'friends' && (
+                      <div className="mb-4 flex items-center gap-2 text-xs text-zinc-600">
+                        <Check className="w-4 h-4 text-brand-600 shrink-0" />
+                        <span>{lang === 'ar' ? '40,000 د.ع لكل مشتركة' : lang === 'ku' ? '٤٠,٠٠٠ د.ع بۆ هەر بەشداربوویەک' : 'Kişi başı 40,000 IQD'}</span>
+                      </div>
+                    )}
 
-                    <ul className="space-y-3 mb-8 flex-grow text-xs text-zinc-600 dark:text-zinc-300">
-                      {offer.features[lang].map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <Check className={`w-4 h-4 shrink-0 mr-1.5 ml-1.5 mt-0.5 ${
-                            isPopular ? 'text-brand-500' : isSpecial ? 'text-gold-500' : 'text-brand-500'
-                          }`} />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="flex-grow" />
 
                     <button
                       onClick={() => {
@@ -751,12 +745,14 @@ export default function DivaGymApp() {
                         );
                         setActiveTab('contact');
                       }}
-                      className={`w-full py-2.5 rounded-full font-semibold text-center text-xs transition-all ${
-                        isPopular 
-                          ? 'bg-gradient-to-r from-brand-600 to-brand-500 text-white shadow-sm hover:shadow-md hover:shadow-brand-500/10' 
-                          : isSpecial
-                            ? 'border border-gold-400 dark:border-gold-700 text-gold-700 dark:text-gold-400 hover:bg-gold-50/50 dark:hover:bg-gold-950/20'
-                            : 'border border-zinc-200 dark:border-zinc-800 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400'
+                      className={`mt-6 w-full py-2.5 rounded-full font-semibold text-center text-xs transition-all ${
+                        offer.id === 'monthly' && offerTimeLeft.days > 0
+                          ? 'bg-red-500 text-white hover:bg-red-600 border-2 border-transparent'
+                          : isPopular 
+                            ? 'border-2 border-brand-600/30 text-brand-600 hover:bg-brand-600 hover:text-white' 
+                            : isSpecial
+                              ? 'border-2 border-gold-500 text-gold-600 hover:bg-gold-600 hover:text-white'
+                              : 'border-2 border-brand-600/30 text-brand-600 hover:bg-brand-600 hover:text-white'
                       }`}
                     >
                       {t.subSelectPlan}
@@ -768,12 +764,19 @@ export default function DivaGymApp() {
 
 
 
-          </div>
+          </motion.div>
         )}
 
         {/* --- SECTION: WORKING HOURS --- */}
         {activeTab === 'hours' && (
-          <div className="space-y-12 animate-fade-in" id="section-hours">
+          <motion.div 
+            key="hours"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="space-y-12" id="section-hours"
+          >
             
             {/* Title */}
             <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -786,160 +789,75 @@ export default function DivaGymApp() {
             </div>
 
             {/* Split layout: Schedule Table & Interactive Timetable */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
               
               {/* Working Hours Card */}
-              <div className="lg:col-span-5 bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
-                <div className="flex items-center space-x-3 rtl:space-x-reverse text-brand-600 dark:text-brand-400">
+              <div className="lg:col-span-5 bg-white rounded-2xl p-6 md:p-8 shadow-sm flex flex-col justify-between border-2 border-brand-600/30">
+                <div className="flex items-center gap-4 text-brand-600">
                   <Clock className="w-6 h-6" />
-                  <h3 className="font-display font-bold text-lg">{lang === 'ar' ? 'الأوقات الأسبوعية' : lang === 'ku' ? 'کاتەکانی هەفتە' : 'Haftalık Mesai Saatleri'}</h3>
+                  <h3 className="font-display font-bold text-lg text-zinc-900">{lang === 'ar' ? 'الأوقات الأسبوعية' : lang === 'ku' ? 'کاتەکانی هەفتە' : 'Haftalık Mesai Saatleri'}</h3>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center py-2 border-b border-zinc-100 dark:border-zinc-800">
-                    <span className="text-xs font-bold text-zinc-500 dark:text-zinc-400">{t.hoursWeekdays}</span>
-                    <span className="text-sm font-semibold">{lang === 'ar' ? '09:00 صباحاً - 10:00 مساءً' : lang === 'ku' ? '09:00 بەیانی - 10:00 شەو' : '09:00 - 22:00'}</span>
+                  <div className="flex justify-between items-center py-2 border-b border-zinc-100">
+                    <span className="text-xs font-bold text-zinc-700">{lang === 'ar' ? 'من السبت إلى الخميس' : lang === 'ku' ? 'لە شەممەوە تا کۆتایی پێنجشەممە' : 'Cumartesi - Perşembe'}</span>
+                    <span className="text-sm font-semibold text-zinc-900">{lang === 'ar' ? '09:00 صباحاً - 10:00 مساءً' : lang === 'ku' ? '09:00 بەیانی - 10:00 شەو' : '09:00 - 22:00'}</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
-                    <span className="text-xs font-bold text-zinc-500 dark:text-zinc-400">{t.hoursSaturday}</span>
-                    <span className="text-sm font-semibold">{lang === 'ar' ? '02:00 ظهراً - 03:00 مساءً' : lang === 'ku' ? '02:00 پاشنیوەڕۆ - 03:00 ئێوارە' : '14:00 - 15:00'}</span>
+                    <span className="text-xs font-bold text-zinc-700">{lang === 'ar' ? 'الجمعة' : lang === 'ku' ? 'جومە' : 'Cuma'}</span>
+                    <span className="text-sm font-semibold text-zinc-900">{lang === 'ar' ? '02:00 ظهراً - 07:00 مساءً' : lang === 'ku' ? '02:00 پاشنیوەڕۆ - 07:00 شەو' : '14:00 - 19:00'}</span>
                   </div>
                 </div>
 
                 {/* Important Alert Callout */}
-                <div className="p-4 rounded-xl bg-brand-50 dark:bg-brand-950/20 border border-brand-100 dark:border-brand-900/60 flex items-start space-x-3 rtl:space-x-reverse">
+                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-start gap-4">
                   <Shield className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" />
-                  <p className="text-xs text-brand-800 dark:text-brand-300 leading-relaxed font-medium">
+                  <p className="text-xs text-zinc-600 leading-relaxed font-medium">
                     {t.hoursNote}
                   </p>
                 </div>
               </div>
 
-              {/* Interactive Class Schedule */}
-              <div className="lg:col-span-7 bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+              {/* Class Times */}
+              <div className="lg:col-span-7 bg-white rounded-2xl p-6 md:p-8 shadow-sm flex flex-col justify-between border-2 border-brand-600/30">
                 <div>
-                  <h3 className="font-display font-bold text-lg text-zinc-900 dark:text-zinc-100">
+                  <h3 className="font-display font-bold text-lg text-zinc-900">
                     {t.hoursSpecialClasses}
                   </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                    {lang === 'ar' ? 'انقري على الحصة لمعاينة تفاصيل التمرين والسعرات المحروقة والكابتن!' : lang === 'ku' ? 'کلیک لەسەر پۆلەکان بکە بۆ خوێندنەوەی وردەکارییەکان!' : 'Egzersiz detayları, kalori verileri ve eğitmen bilgisi için derslere tıklayın!'}
-                  </p>
                 </div>
 
-                {/* Switch Class Tabs */}
-                <div className="flex space-x-2 rtl:space-x-reverse border-b border-zinc-100 dark:border-zinc-800 pb-2">
+                <div className="space-y-3 mt-6">
                   {[
-                    { id: 'yoga', label: t.hoursMorningYoga },
-                    { id: 'zumba', label: t.hoursNoonZumba },
-                    { id: 'crossfit', label: t.hoursEveningCrossfit }
-                  ].map((cls) => (
-                    <button
-                      key={cls.id}
-                      onClick={() => setSelectedClass(cls.id as any)}
-                      className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
-                        selectedClass === cls.id
-                          ? 'bg-brand-500 text-white shadow-sm'
-                          : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
-                      }`}
-                    >
-                      {cls.label}
-                    </button>
+                    { time: '11:00', period: lang === 'ar' ? 'صباحاً' : lang === 'ku' ? 'بەیانی' : 'AM' },
+                    { time: '03:00', period: lang === 'ar' ? 'ظهراً' : lang === 'ku' ? 'پاشنیوەڕۆ' : 'PM' },
+                    { time: '05:00', period: lang === 'ar' ? 'عصراً' : lang === 'ku' ? 'ئێوارە' : 'PM' },
+                    { time: '07:30', period: lang === 'ar' ? 'مساءً' : lang === 'ku' ? 'شەو' : 'PM' },
+                  ].map((slot, idx) => (
+                    <div key={idx} className="flex items-center justify-between py-3 px-4 bg-white border-2 border-brand-600/30 rounded-xl hover:bg-brand-600/5 transition-all">
+                      <div className="flex items-center gap-3">
+                        <Clock className="w-4 h-4 text-brand-600" />
+                        <span className="text-sm font-semibold text-zinc-900">{slot.time} <span className="text-brand-600 text-xs font-bold">{slot.period}</span></span>
+                      </div>
+                    </div>
                   ))}
                 </div>
-
-                {/* Tab content */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={selectedClass}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="p-5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800/50 space-y-4"
-                  >
-                    {selectedClass === 'yoga' && (
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-start">
-                          <h4 className="font-display font-bold text-base text-brand-700 dark:text-brand-300">{t.hoursMorningYoga}</h4>
-                          <span className="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300">
-                            {lang === 'ar' ? 'مستوى هادئ' : lang === 'ku' ? 'ئاستی هێمن' : 'Düşük Yoğunluk'}
-                          </span>
-                        </div>
-                        <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                          {lang === 'ar' 
-                            ? 'جلسة استيقاظ عميقة وتصفية ذهنية تركز على التوازن، تمديد المفاصل، التنفس الواعي وتثبيت العمود الفقري لبدء يومكِ بطاقة ونشاط.'
-                            : lang === 'ku'
-                              ? 'وانەی یۆگای بەیانیان جەخت لەسەر کەمکردنەوەی سترێس، هۆشیاری جەستە و بەهێزکردنی بڕبڕەی پشت دەکاتەوە.'
-                              : 'Zihinsel odaklanma, nefes teknikleri ve esnekliği geliştiren, güne harika ve stressiz başlamanızı sağlayan mat yogası.'}
-                        </p>
-                        <div className="grid grid-cols-2 gap-4 pt-3 text-[11px] font-bold text-zinc-500 dark:text-zinc-400 border-t border-zinc-200/60 dark:border-zinc-800/60">
-                          <div>⏱️ {lang === 'ar' ? 'الوقت: 08:30 - 09:30 (إثنين وأربعاء)' : lang === 'ku' ? 'کات: ٠٨:٣٠ - ٠٩:٣٠' : 'Saat: Pazartesi-Çarşamba 08:30'}</div>
-                          <div>🔥 {lang === 'ar' ? 'حرق السعرات: ~250 سعرة' : lang === 'ku' ? 'سووتاندن: ٢٥٠ کالۆری' : 'Kalori Yakımı: ~250 kcal'}</div>
-                          <div>👟 {lang === 'ar' ? 'الملابس: مريحة / حافية القدمين' : lang === 'ku' ? 'پێڵاو: بەبێ پێڵاو' : 'Ekipman: Mat ve Rahat Kıyafetler'}</div>
-                          <div>👩‍🏫 {lang === 'ar' ? 'المدربة: كابتن ياسمين' : lang === 'ku' ? 'ڕاهێنەر: کابتن یاسەمین' : 'Eğitmen: Yasmin Hoca'}</div>
-                        </div>
-                      </div>
-                    )}
-
-                    {selectedClass === 'zumba' && (
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-start">
-                          <h4 className="font-display font-bold text-base text-brand-700 dark:text-brand-300">{t.hoursNoonZumba}</h4>
-                          <span className="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300">
-                            {lang === 'ar' ? 'مستوى حماسي متوسط' : lang === 'ku' ? 'ئاستی مامناوەند' : 'Orta-Yüksek Yoğunluk'}
-                          </span>
-                        </div>
-                        <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                          {lang === 'ar' 
-                            ? 'مزيج رائع وحيوي من الحركات الإيقاعية اللاتينية والكارديو لحرق الدهون بمتعة غامرة ونحت القوام على أنغام أحدث الأغاني الحماسية.'
-                            : lang === 'ku'
-                              ? 'وانەیەکی پڕ لە وزە و سەمای لاتینی بۆ سووتاندنی کێش بە کاتێکی خۆش و حەماسی لە نیوەڕواندا.'
-                              : 'Kardiyo egzersizlerini dinamik dans koreografileriyle buluşturan, yüksek motivasyonlu yağ yakım zumba partisi.'}
-                        </p>
-                        <div className="grid grid-cols-2 gap-4 pt-3 text-[11px] font-bold text-zinc-500 dark:text-zinc-400 border-t border-zinc-200/60 dark:border-zinc-800/60">
-                          <div>⏱️ {lang === 'ar' ? 'الوقت: 13:00 - 14:00 (ثلاثاء وخميس)' : lang === 'ku' ? 'کات: ١٣:٠٠ - ١٤:٠٠' : 'Saat: Salı-Perşembe 13:00'}</div>
-                          <div>🔥 {lang === 'ar' ? 'حرق السعرات: ~500 سعرة' : lang === 'ku' ? 'سووتاندن: ٥٠٠ کالۆری' : 'Kalori Yakımı: ~500 kcal'}</div>
-                          <div>👟 {lang === 'ar' ? 'الملابس: حذاء ركض خفيف' : lang === 'ku' ? 'پێڵاو: پێڵاوی وەرزشی سووک' : 'Giyim: Hafif Egzersiz Ayakkabısı'}</div>
-                          <div>👩‍🏫 {lang === 'ar' ? 'المدربة: كابتن لارا' : lang === 'ku' ? 'ڕاهێنەر: کابتن لارا' : 'Eğitmen: Lara Hoca'}</div>
-                        </div>
-                      </div>
-                    )}
-
-                    {selectedClass === 'crossfit' && (
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-start">
-                          <h4 className="font-display font-bold text-base text-brand-700 dark:text-brand-300">{t.hoursEveningCrossfit}</h4>
-                          <span className="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-red-100 dark:bg-red-950/40 text-red-800 dark:text-red-300">
-                            {lang === 'ar' ? 'مستوى مرتفع ومكثف' : lang === 'ku' ? 'ئاستی بەرز و چڕ' : 'Yüksek Yoğunluk'}
-                          </span>
-                        </div>
-                        <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                          {lang === 'ar' 
-                            ? 'تحدي القوة وبناء التحمل! تمرين عالي الكثافة (HIIT) يشمل رفع أوزان حرة، جولات كارديو وسيركل لتقوية اللياقة البدنية والوصول لأقصى استشفاء.'
-                            : lang === 'ku'
-                              ? 'سەختترین ڕاهێنان بۆ توندکردنی جەستە و هێز بە بەکارهێنانی قورسایی و وەرزشی خێرا.'
-                              : 'Güç, esneklik ve metabolik hızı bir arada zorlayan, fonksiyonel ağırlık ve kondisyon egzersiz bütünü.'}
-                        </p>
-                        <div className="grid grid-cols-2 gap-4 pt-3 text-[11px] font-bold text-zinc-500 dark:text-zinc-400 border-t border-zinc-200/60 dark:border-zinc-800/60">
-                          <div>⏱️ {lang === 'ar' ? 'الوقت: 18:00 - 19:15 (يومياً)' : lang === 'ku' ? 'کات: ١٨:٠٠ - ١٩:١٥' : 'Saat: Hafta içi Her gün 18:00'}</div>
-                          <div>🔥 {lang === 'ar' ? 'حرق السعرات: ~700 سعرة' : lang === 'ku' ? 'سووتاندن: ٧٠٠ کالۆری' : 'Kalori Yakımı: ~700 kcal'}</div>
-                          <div>👟 {lang === 'ar' ? 'الملابس: حذاء تدريب قوي وثابت' : lang === 'ku' ? 'پێڵاو: پێڵاوی توندی مەشق' : 'Giyim: Destekleyici Antrenman Ayakkabısı'}</div>
-                          <div>👩‍🏫 {lang === 'ar' ? 'المدربة: كابتن روناهي' : lang === 'ku' ? 'ڕاهێنەر: کابتن ڕۆناهی' : 'Eğitmen: Ronahi Hoca'}</div>
-                        </div>
-                      </div>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
               </div>
 
             </div>
 
-          </div>
+          </motion.div>
         )}
 
         {/* --- SECTION: SERVICES --- */}
         {activeTab === 'services' && (
-          <div className="space-y-12 animate-fade-in" id="section-services">
+          <motion.div 
+            key="services"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="space-y-12" id="section-services"
+          >
             
             {/* Title */}
             <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -951,64 +869,279 @@ export default function DivaGymApp() {
               </p>
             </div>
 
-            {/* Grid layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { name: t.service1Name, desc: t.service1Desc, icon: <UserCheck className="w-6 h-6 text-brand-600" />, detail: lang === 'ar' ? 'يتوفر لدينا برنامج قياس الإنبودي (InBody) الأسبوعي لمعرفة نسبة الدهون والمياه والعضلات بدقة فائقة وبناء خطة بناءً عليها.' : lang === 'ku' ? 'هەفتانە پێوانی ئاستی چەوری و ماسولکە بە وردی لە ڕێگەی ئامێری ئینبۆدی دەکەین.' : 'Haftalık profesyonel InBody analizi eşliğinde kilo kaybı veya kas gelişimi için özel program.' },
-                { name: t.service2Name, desc: t.service2Desc, icon: <Dumbbell className="w-6 h-6 text-brand-600" />, detail: lang === 'ar' ? 'تشمل الحصص التفاعلية لدينا اليوغا والزومبا والأيروبيكس المائي والكروس فت على مدار اليوم صباحاً ومساءً.' : lang === 'ku' ? 'کلاسی جۆراوجۆر و سەرنجڕاکێش بە درێژایی ڕۆژ بە شێوەی زیندە و گەرم.' : 'Sabah ve akşam grupları ile esnek saatlerde gün boyu süren enerjik grup motivasyon dersleri.' },
-                { name: t.service3Name, desc: t.service3Desc, icon: <Sparkles className="w-6 h-6 text-brand-600" />, detail: lang === 'ar' ? 'غرف مجهزة بأرقى وسائل الراحة والبخار والساونا الطبيعية والجاكوزي لإراحة عضلاتك بعد الحصص الشاقة.' : lang === 'ku' ? 'شوێنی حەمام و هەڵم و ساونای گەرم بۆ پشوودانی تەواو لە دوای وەرزش.' : 'Yoğun antrenman yorgunluğunu atmak ve kasları gevşetmek için tasarlanan profesyonel buhar ve sauna odaları.' },
-                { name: t.service4Name, desc: t.service4Desc, icon: <Heart className="w-6 h-6 text-brand-600" />, detail: lang === 'ar' ? 'مياه مدفأة مصفاة بعناية لدرجة حرارة مريحة للغاية للجسم ومناسبة للتمارين المائية الحارقة للسعرات.' : lang === 'ku' ? 'مەلەوانگەی داپۆشراو و گەرم بۆ خانمان و وەرزشە ئاوییەکان.' : 'Isı ve klor kontrolü sürekli sağlanan, özel kadın aqua-aerobik derslerinin yapıldığı kapalı havuz.' },
-                { name: t.service5Name, desc: t.service5Desc, icon: <Coffee className="w-6 h-6 text-brand-600" />, detail: lang === 'ar' ? 'تحليل العادات الغذائية وصياغة وجبات متكاملة صحية خالية من الحرمان تدعم صحة ونضارة البشرة وجسدك.' : lang === 'ku' ? 'پلانی خۆراکی زانستی لەگەڵ پسپۆڕ بەبێ برسیبوون بۆ تەندروستی جەستە.' : 'Diyetisyenimiz eşliğinde metabolizmanıza uygun, sürdürülebilir sağlıklı beslenme takipleri.' },
-                { name: t.service6Name, desc: t.service6Desc, icon: <Shield className="w-6 h-6 text-brand-600" />, detail: lang === 'ar' ? 'منطقة مجهزة بالألعاب ومراقبة بكاميرات مع جليسة أطفال محترفة لتستمتعي بتمرينك بكل راحة وخصوصية.' : lang === 'ku' ? 'شوێنێکی پارێزراو بۆ یاریکردنی منداڵەکەت کاتێک تۆ وەرزش دەکەیت.' : 'Siz spor yaparken çocuklarınızın uzman gözetiminde güvenli ve eğlenceli vakit geçirebileceği oyun alanı.' }
-              ].map((serv, index) => {
-                const isOpen = activeServiceDetails === index;
-                return (
+            <AnimatePresence mode="wait">
+            {activeServiceDetails !== null ? (
+              /* Detail View */
+              <motion.div 
+                key="service-detail"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="max-w-2xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-sm border-2 border-brand-600/30"
+              >
+                <button
+                  onClick={() => setActiveServiceDetails(null)}
+                  className="flex items-center gap-2 text-brand-600 text-sm font-bold mb-6 hover:underline"
+                >
+                  <span>{lang === 'ar' ? '→ العودة للخدمات' : lang === 'ku' ? '→ گەڕانەوە بۆ خزمەتەکان' : '→ Hizmetlere Dön'}</span>
+                </button>
+                {(() => {
+                  const services = [
+                    { name: lang === 'ar' ? 'التدريب الشخصي' : lang === 'ku' ? 'ڕاهێنانی تایبەتی' : 'Kişisel Antrenör', desc: lang === 'ar' ? 'برامج تدريب مخصصة حسب أهدافك' : lang === 'ku' ? 'بەرنامەی ڕاهێنانی تایبەتی' : 'Size özel antrenman programları', icon: <Activity className="w-6 h-6 text-white" />, detail: 'training' },
+                    { name: lang === 'ar' ? 'المتجر' : lang === 'ku' ? 'دەڕگا' : 'Mağaza', desc: lang === 'ar' ? 'ملابس رياضية ومكملات عالية الجودة' : lang === 'ku' ? 'جلی وەرزشی و زیادکراوەی کوالیتی' : 'Spor giyim ve takviye ürünleri', icon: <ShoppingBag className="w-6 h-6 text-white" />, detail: 'store' },
+                    { name: lang === 'ar' ? 'الاستشارات الغذائية' : lang === 'ku' ? 'ڕاوێژکاری خۆراکی' : 'Beslenme Danışmanlığı', desc: lang === 'ar' ? 'خطط غذائية متكاملة ومخصصة' : lang === 'ku' ? 'پلانی خۆراکی تەواو و تایبەتی' : 'Kişiselleştirilmiş beslenme planları', icon: <Apple className="w-6 h-6 text-white" />, detail: 'nutrition' },
+                    { name: lang === 'ar' ? 'مواقف سيارات مجانية' : lang === 'ku' ? 'شوێنی وەستانی ئۆتۆمبێلی بێبەرامبەر' : 'Ücretsiz Otopark', desc: lang === 'ar' ? 'مواقف مجانية ومغطاة للسيارات' : lang === 'ku' ? 'شوێنی بەتاڵکردنی بەتاڵ بۆ ئۆتۆمبێل' : 'Kapalı ve ücretsiz otopark alanı', icon: <Car className="w-6 h-6 text-white" />, detail: 'parking' },
+                    { name: lang === 'ar' ? 'صالة الأطفال' : lang === 'ku' ? 'شوێنی یاری منداڵان' : 'Çocuk Oyun Alanı', desc: lang === 'ar' ? 'منطقة آمنة ومجهزة للأطفال' : lang === 'ku' ? 'شوێنێکی سەلامەت و تەواو بۆ منداڵان' : 'Güvenli ve donanımlı çocuk alanı', icon: <Baby className="w-6 h-6 text-white" />, detail: 'kids' }
+                  ];
+                  const serv = services[activeServiceDetails];
+                  return (
+                    <>
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="p-4 bg-brand-600 rounded-xl">
+                          <span className="text-white">{serv.icon}</span>
+                        </div>
+                        <h3 className="font-display font-extrabold text-xl text-zinc-900">{serv.name}</h3>
+                      </div>
+                      {serv.detail === 'kids' ? (
+                        <div className="space-y-4">
+                          {/* Age Groups */}
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center">
+                              <span className="text-2xl block mb-2">👦</span>
+                              <p className="font-bold text-sm text-zinc-900">{lang === 'ar' ? 'الأولاد' : lang === 'ku' ? 'كچەکان' : 'Erkek Çocuk'}</p>
+                              <p className="text-xs text-zinc-500 mt-1">{lang === 'ar' ? 'من 3 إلى 9 سنوات' : lang === 'ku' ? 'لە 3 بۆ 9 ساڵ' : '3 ile 9 yaş arası'}</p>
+                            </div>
+                            <div className="bg-pink-50 border border-pink-200 rounded-xl p-4 text-center">
+                              <span className="text-2xl block mb-2">👧</span>
+                              <p className="font-bold text-sm text-zinc-900">{lang === 'ar' ? 'البنات' : lang === 'ku' ? 'کچەکان' : 'Kız Çocuk'}</p>
+                              <p className="text-xs text-zinc-500 mt-1">{lang === 'ar' ? 'من 3 إلى 10 سنوات' : lang === 'ku' ? 'لە 3 بۆ 10 ساڵ' : '3 ile 10 yaş arası'}</p>
+                            </div>
+                          </div>
+
+                          {/* Attendance */}
+                          <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-4">
+                            <div className="flex items-center gap-2 mb-2">
+                              <Calendar className="w-4 h-4 text-brand-600" />
+                              <p className="font-bold text-sm text-zinc-900">{lang === 'ar' ? 'الحضور' : lang === 'ku' ? 'هاتن' : 'Katılım'}</p>
+                            </div>
+                            <p className="text-xs text-zinc-600 leading-relaxed">
+                              {lang === 'ar' ? 'إذا كان حضور الطفل بشكل بسيط أو للضرورة مرة أو مرتين بالشهر فلا توجد مشكلة.' : lang === 'ku' ? 'ئەگەر منداڵەکەت یەک یان دوو جار لە مانگدا بێت، هیچ کێشەیەک نییە.' : 'Çocuğunuz ayda bir veya iki kez basitçe katılıyorsa sorun yoktur.'}
+                            </p>
+                          </div>
+
+                          {/* Subscription */}
+                          <div className="bg-brand-50 border border-brand-200 rounded-xl p-4">
+                            <div className="flex items-center gap-2 mb-2">
+                              <Check className="w-4 h-4 text-brand-600" />
+                              <p className="font-bold text-sm text-zinc-900">{lang === 'ar' ? 'الاشتراك' : lang === 'ku' ? 'بەشداری' : 'Abonelik'}</p>
+                            </div>
+                            <p className="text-xs text-zinc-600 leading-relaxed mb-2">
+                              {lang === 'ar' ? 'أما الحضور اليومي فيتطلب اشتراكًا شهريًا للطفل بقيمة:' : lang === 'ku' ? 'بەڵام ئەگەر هەموو ڕۆژ بێت، پێویستە بەشداری مانگانە بۆ منداڵەکەت بکەیت:' : 'Ancak günlük katılım için aylık çocuk aboneliği gereklidir:'}
+                            </p>
+                            <div className="flex items-baseline gap-1">
+                              <span className="text-2xl font-black text-brand-600">10,000</span>
+                              <span className="text-xs text-zinc-500 font-bold">{lang === 'ar' ? 'ألف دينار فقط' : lang === 'ku' ? 'هەزار دینار تەنها' : 'Bin Dinar'}</span>
+                            </div>
+                          </div>
+
+                          {/* Note */}
+                          <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
+                            <Shield className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                            <p className="text-xs text-red-600 font-bold leading-relaxed">
+                              {lang === 'ar' ? 'يُمنع دخول الأطفال إلى داخل الصالة الرياضية.' : lang === 'ku' ? 'منداڵان نابێت بنەوەی هۆڵی وەرزشەکە.' : 'Çocukların spor salonu içine girmesi yasaktır.'}
+                            </p>
+                          </div>
+                        </div>
+                      ) : serv.detail === 'store' ? (
+                        <div className="space-y-4">
+                          {/* Intro */}
+                          <div className="bg-brand-50 border border-brand-200 rounded-xl p-4">
+                            <p className="text-sm text-zinc-700 leading-relaxed font-medium">
+                              {lang === 'ar' ? 'كل ما تحتاجينه لرحلتك الرياضية في مكانٍ واحد، بجودة عالية ومنتجات مختارة بعناية لتمنحك تجربة رياضية متكاملة.' : lang === 'ku' ? 'هەموو ئەو شتانەی پێویستیت بۆ سەفەری وەرزشت هەیە لە شوێنێک، بە کوالیتی بەرز و بەرهەمەکان بە وردی هەلبژێڕدراون.' : 'Spor yolculuğunuz için ihtiyacınız olan her şey tek bir yerde, yüksek kalitede ve özenle seçilmiş ürünlerle.'}
+                            </p>
+                          </div>
+
+                          {/* Sportswear */}
+                          <div className="bg-white border-2 border-brand-600/20 rounded-xl p-4">
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="text-lg">👕</span>
+                              <p className="font-bold text-sm text-brand-600">{lang === 'ar' ? 'الملابس الرياضية' : lang === 'ku' ? 'جلی وەرزشی' : 'Spor Giyim'}</p>
+                            </div>
+                            <p className="text-xs text-zinc-600 leading-relaxed">
+                              {lang === 'ar' ? 'اكتشفي أحدث تشكيلة من الملابس الرياضية النسائية التي تجمع بين الأناقة، الراحة، والأداء العملي، لتشعري بالثقة في كل تمرين.' : lang === 'ku' ? 'باشترین جلی وەرزشی کچانە بە هەڵگرتنی جوانی، ئارامی و کاریگەری، بۆ ئەوەی لە هەموو وەرزشتدا متمانەت هەبێت.' : 'Kadın spor giyiminin en yeni koleksiyonunu keşfedin; şıklık, konfor ve pratik performansı bir arada sunar.'}
+                            </p>
+                          </div>
+
+                          {/* Supplements */}
+                          <div className="bg-white border-2 border-brand-600/20 rounded-xl p-4">
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="text-lg">💪</span>
+                              <p className="font-bold text-sm text-brand-600">{lang === 'ar' ? 'المكملات الغذائية' : lang === 'ku' ? 'زیادکراوەی خۆراکی' : 'Beslenme Takviyeleri'}</p>
+                            </div>
+                            <p className="text-xs text-zinc-600 leading-relaxed">
+                              {lang === 'ar' ? 'نوفر مجموعة متنوعة من المكملات الغذائية الأصلية لدعم أهدافك، سواء لبناء العضلات، تحسين الأداء، أو تعزيز التعافي بعد التمارين.' : lang === 'ku' ? 'جۆراوجۆر زیادکراوەی خۆراکی ڕاستەقینە بۆ پشتگیری ئامانجەکانت پێشکەش دەکەین، بۆ دروستکردنی ماسولکە، باشترکردنی کاریگەری یان چاککردنی جەستە.' : ' kas gelişimi, performans iyileştirme veya egzersiz sonrası toparlanma desteğinden, çeşitli orijinal beslenme takviyeleri sunuyoruz.'}
+                            </p>
+                          </div>
+
+                          {/* Why Diva Gym Store */}
+                          <div className="bg-gold-50 border border-gold-200 rounded-xl p-4">
+                            <p className="font-bold text-sm text-zinc-900 mb-3">{lang === 'ar' ? 'لماذا متجر Diva Gym؟' : lang === 'ku' ? 'بۆچی دەڕگای دیڤا جیم؟' : 'Neden Diva Gym Mağazası?'}</p>
+                            <div className="space-y-2">
+                              {[
+                                { emoji: '✨', text: lang === 'ar' ? 'منتجات أصلية وعالية الجودة.' : lang === 'ku' ? 'بەرهەمەکان ڕاستەقینە و بە کوالیتی.' : 'Orijinal ve yüksek kaliteli ürünler.' },
+                                { emoji: '👕', text: lang === 'ar' ? 'أحدث الملابس والإكسسوارات الرياضية.' : lang === 'ku' ? 'باشترین جل و ئاکسسواری وەرزشی.' : 'En yeni spor giyim ve aksesuarlar.' },
+                                { emoji: '💪', text: lang === 'ar' ? 'مكملات غذائية من علامات تجارية موثوقة.' : lang === 'ku' ? 'زیادکراوەی خۆراکی لە مارکە بەرسوودەرەکان.' : 'Güvenilir markalardan beslenme takviyeleri.' },
+                                { emoji: '💖', text: lang === 'ar' ? 'كل ما تحتاجينه في مكان واحد لتكملي رحلتك الرياضية بكل راحة وثقة.' : lang === 'ku' ? 'هەموو ئەو شتانەی پێویستیت بۆ لە شوێنێک بۆ تەواوکردنی سەفەری وەرزشت بە ئارامی و متمانە.' : 'Spor yolculuğunuzu tamamlamak için ihtiyacınız olan her şey tek bir yerde.' }
+                              ].map((item, i) => (
+                                <div key={i} className="flex items-start gap-2">
+                                  <span className="text-sm shrink-0">{item.emoji}</span>
+                                  <p className="text-xs text-zinc-600 leading-relaxed">{item.text}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ) : serv.detail === 'training' ? (
+                        <div className="space-y-4">
+                          {/* Main Text */}
+                          <div className="bg-white border-2 border-brand-600/20 rounded-xl p-4">
+                            <p className="text-sm text-zinc-600 leading-relaxed">
+                              {lang === 'ar' ? 'احققي أفضل النتائج مع برنامج التدريب الشخصي المصمم خصيصًا لكِ، والذي يتضمن قياس InBody بشكل أسبوعي لتحليل نسبة الدهون، الكتلة العضلية، والمياه بدقة عالية، ومتابعة تقدمك خطوة بخطوة لبناء خطة تدريب وتغذية تناسب أهدافك.' : lang === 'ku' ? 'باشترین ئەنجامەکان بە بەرنامەی ڕاهێنانی تایبەتی بە تایبەتی بۆ تۆ دروستکراوە، کە پێوانی InBody ەفتانە بۆ تێکڕابوونی چەوری، ماسولکە و ئاو تێدایە بە وردی بەرز، و شوێنی پێشکەوتنەکەت قەدم بە قەدم دەکەین بۆ دروستکردنی بەرنامەی وەرزش و خۆراکی گونجاو بۆ ئامانجەکانت.' : 'Kişiselleştirilmiş antrenman programıyla en iyi sonuçları elde edin; haftalık InBody ölçümü ile yağ oranı, kas kütlesi ve su oranını hassasiyetle analiz ediyor, adım adım takip ederek hedeflerinize uygun antrenman ve beslenme planı oluşturuyoruz.'}
+                            </p>
+                          </div>
+
+                          {/* Features */}
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-brand-50 border border-brand-200 rounded-xl p-3 text-center">
+                              <span className="text-xl block mb-1">📊</span>
+                              <p className="text-[10px] font-bold text-zinc-900">{lang === 'ar' ? 'قياس InBody أسبوعي' : lang === 'ku' ? 'پێوانی InBody ەفتانە' : 'Haftalık InBody'}</p>
+                            </div>
+                            <div className="bg-brand-50 border border-brand-200 rounded-xl p-3 text-center">
+                              <span className="text-xl block mb-1">📈</span>
+                              <p className="text-[10px] font-bold text-zinc-900">{lang === 'ar' ? 'متابعة التقدم' : lang === 'ku' ? 'شوێنی پێشکەوتن' : 'İlerleme Takibi'}</p>
+                            </div>
+                            <div className="bg-brand-50 border border-brand-200 rounded-xl p-3 text-center">
+                              <span className="text-xl block mb-1">🏋️</span>
+                              <p className="text-[10px] font-bold text-zinc-900">{lang === 'ar' ? 'خطة تدريب مخصصة' : lang === 'ku' ? 'بەرنامەی ڕاهێنانی تایبەتی' : 'Kişisel Program'}</p>
+                            </div>
+                            <div className="bg-brand-50 border border-brand-200 rounded-xl p-3 text-center">
+                              <span className="text-xl block mb-1">🍎</span>
+                              <p className="text-[10px] font-bold text-zinc-900">{lang === 'ar' ? 'خطة غذائية' : lang === 'ku' ? 'پلانی خۆراکی' : 'Beslenme Planı'}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ) : serv.detail === 'parking' ? (
+                        <div className="space-y-4">
+                          {/* Intro Banner */}
+                          <div className="bg-zinc-900 rounded-xl p-5 text-center">
+                            <p className="text-base font-bold text-white leading-relaxed">
+                              {lang === 'ar' ? 'راحتك تبدأ قبل أول تمرين.' : lang === 'ku' ? 'ئارامیت پێش یەکەم وەرزشت دەست دەکات.' : 'Rahatlığınız ilk antrenmanınızdan önce başlar.'}
+                            </p>
+                          </div>
+
+                          {/* Main Text */}
+                          <div className="bg-white border-2 border-brand-600/20 rounded-xl p-4">
+                            <p className="text-sm text-zinc-600 leading-relaxed">
+                              {lang === 'ar' ? 'نوفر كراجًا مجانيًا وآمنًا لعضوات Diva Gym، لتستمتعي بتجربة مريحة منذ لحظة وصولك، دون عناء البحث عن موقف.' : lang === 'ku' ? 'گاراژێکی بەتاڵ و سەلامەت بۆ ئەندامانی دیڤا جیم دابین دەکەین، بۆ ئەوەی لە کاتی گەیشتنتەوە ئارامیت بێت بێ هیچ کێشەیەک.' : 'Diva Gym üyelerine ücretsiz ve güvenli bir garaj sunuyoruz, böylece varış anınızdan itibaren park yeri arama derdi olmadan konforlu bir deneyim yaşarsınız.'}
+                            </p>
+                          </div>
+
+                          {/* Highlight */}
+                          <div className="bg-brand-50 border border-brand-200 rounded-xl p-4 flex items-start gap-3">
+                            <span className="text-lg shrink-0">✨</span>
+                            <p className="text-xs text-zinc-700 font-bold leading-relaxed">
+                              {lang === 'ar' ? 'كل التفاصيل صُممت لتمنحك تجربة راقية تستحقينها.' : lang === 'ku' ? 'هەموو وردەکان بۆ ئەوەی دروستکراون ئەوەی ئەزرەکەت بۆ هەیە پێشکەش دەکەین.' : 'Tüm detaylar, hak ettiğiniz üstün bir deneyim sunmak için tasarlandı.'}
+                            </p>
+                          </div>
+                        </div>
+                      ) : serv.detail === 'nutrition' ? (
+                        <div className="space-y-4">
+                          {/* Intro Banner */}
+                          <div className="bg-green-50 border border-green-200 rounded-xl p-5 text-center">
+                            <span className="text-3xl block mb-3">🌿</span>
+                            <p className="text-base font-bold text-zinc-900 leading-relaxed">
+                              {lang === 'ar' ? 'رحلتك تبدأ من التغذية.' : lang === 'ku' ? 'سەفەرەکەت لە خۆراکەکەوە دەست دەکات.' : 'Yolculuğunuz beslenme ile başlar.'}
+                            </p>
+                          </div>
+
+                          {/* Main Text */}
+                          <div className="bg-white border-2 border-brand-600/20 rounded-xl p-4">
+                            <p className="text-sm text-zinc-600 leading-relaxed">
+                              {lang === 'ar' ? 'نساعدك على تحقيق أهدافك بخطط غذائية متوازنة ومدروسة، مصممة لتتناسب مع نمط حياتك واحتياجاتك الرياضية.' : lang === 'ku' ? 'بە پلانی خۆراکی کۆی و لێکۆڵاوەتەوە بەرامبەر ئامانجەکانت یارمەتیت دەدەین، کە بەگوێربەی ژیان و پێویستی وەرزشتەوە دروستکراون.' : 'Hedeflerinize ulaşmanıza dengeli ve planlı beslenme programlarıyla yardımcı oluyoruz.'}
+                            </p>
+                          </div>
+
+                          {/* Highlight */}
+                          <div className="bg-brand-50 border border-brand-200 rounded-xl p-4 flex items-start gap-3">
+                            <span className="text-lg shrink-0">💡</span>
+                            <p className="text-xs text-zinc-700 font-bold leading-relaxed">
+                              {lang === 'ar' ? 'لأن النتائج الحقيقية تبدأ من المطبخ، وتكتمل داخل النادي.' : lang === 'ku' ? 'چونکە ئەنجامە ڕاستەقینەکان لە چێکەخانەوە دەست دەکەن و تەواو دەبن لە ناو هۆڵەکە.' : 'Çünkü gerçek sonuçlar mutfakta başlar ve spor salonunda tamamlanır.'}
+                            </p>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="bg-zinc-50 rounded-xl p-4 text-sm text-zinc-600 leading-relaxed border border-zinc-100">
+                          {serv.detail}
+                        </div>
+                      )}
+                    </>
+                  );
+                })()}
+              </motion.div>
+            ) : (
+              /* Grid layout */
+              <motion.div 
+                key="service-grid"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              >
+                {[
+                  { name: lang === 'ar' ? 'التدريب الشخصي' : lang === 'ku' ? 'ڕاهێنانی تایبەتی' : 'Kişisel Antrenör', desc: lang === 'ar' ? 'برامج تدريب مخصصة حسب أهدافك' : lang === 'ku' ? 'بەرنامەی ڕاهێنانی تایبەتی' : 'Size özel antrenman programları', icon: <Activity className="w-6 h-6 text-white" /> },
+                  { name: lang === 'ar' ? 'المتجر' : lang === 'ku' ? 'دەڕگا' : 'Mağaza', desc: lang === 'ar' ? 'ملابس رياضية ومكملات عالية الجودة' : lang === 'ku' ? 'جلی وەرزشی و زیادکراوەی کوالیتی' : 'Spor giyim ve takviye ürünleri', icon: <ShoppingBag className="w-6 h-6 text-white" /> },
+                  { name: lang === 'ar' ? 'الاستشارات الغذائية' : lang === 'ku' ? 'ڕاوێژکاری خۆراکی' : 'Beslenme Danışmanlığı', desc: lang === 'ar' ? 'خطط غذائية متكاملة ومخصصة' : lang === 'ku' ? 'پلانی خۆراکی تەواو و تایبەتی' : 'Kişiselleştirilmiş beslenme planları', icon: <Apple className="w-6 h-6 text-white" /> },
+                  { name: lang === 'ar' ? 'مواقف سيارات مجانية' : lang === 'ku' ? 'شوێنی وەستانی ئۆتۆمبێلی بێبەرامبەر' : 'Ücretsiz Otopark', desc: lang === 'ar' ? 'مواقف مجانية ومغطاة للسيارات' : lang === 'ku' ? 'شوێنی بەتاڵکردنی بەتاڵ بۆ ئۆتۆمبێل' : 'Kapalı ve ücretsiz otopark alanı', icon: <Car className="w-6 h-6 text-white" /> },
+                  { name: lang === 'ar' ? 'صالة الأطفال' : lang === 'ku' ? 'شوێنی یاری منداڵان' : 'Çocuk Oyun Alanı', desc: lang === 'ar' ? 'منطقة آمنة ومجهزة للأطفال' : lang === 'ku' ? 'شوێنێکی سەلامەت و تەواو بۆ منداڵان' : 'Güvenli ve donanımlı çocuk alanı', icon: <Baby className="w-6 h-6 text-white" /> }
+                ].map((serv, index) => (
                   <div
                     key={index}
-                    className="flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all cursor-pointer"
-                    onClick={() => setActiveServiceDetails(isOpen ? null : index)}
+                    className="flex flex-col bg-white rounded-2xl p-6 shadow-sm hover:shadow-md hover:bg-brand-600/10 transition-all border-2 border-brand-600/30 cursor-pointer"
+                    onClick={() => setActiveServiceDetails(index)}
                     id={`service-card-${index}`}
                   >
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 bg-brand-50 dark:bg-brand-950/40 rounded-xl text-brand-600">
-                        {serv.icon}
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-brand-600 rounded-xl">
+                        <span className="text-white">{serv.icon}</span>
                       </div>
-                      <span className="text-[10px] text-brand-600 dark:text-brand-400 font-extrabold uppercase tracking-wider">
-                        {isOpen ? '✕ Close' : '⚡ Info'}
-                      </span>
                     </div>
-
-                    <h3 className="font-display font-extrabold text-base text-zinc-900 dark:text-zinc-100">
+                    <h3 className="font-display font-extrabold text-base text-zinc-900">
                       {serv.name}
                     </h3>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed">
+                    <p className="text-xs text-zinc-500 mt-2 leading-relaxed">
                       {serv.desc}
                     </p>
-
-                    {/* Animated Expand details */}
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-300 bg-brand-50/20 dark:bg-zinc-950/20 p-3 rounded-lg leading-relaxed"
-                        >
-                          {serv.detail}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
                   </div>
-                );
-              })}
-            </div>
+                ))}
+              </motion.div>
+            )}
+            </AnimatePresence>
 
-          </div>
+          </motion.div>
         )}
 
         {/* --- SECTION: ABOUT --- */}
         {activeTab === 'about' && (
-          <div className="space-y-16 animate-fade-in" id="section-about">
+          <motion.div 
+            key="about"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="space-y-16" id="section-about"
+          >
             
             {/* Story Split Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -1016,16 +1149,16 @@ export default function DivaGymApp() {
                 <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight">
                   {t.aboutStoryTitle}
                 </h2>
-                <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                <p className="text-sm text-zinc-800 leading-relaxed">
                   {t.aboutStoryText1}
                 </p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                <p className="text-sm text-zinc-800 leading-relaxed">
                   {t.aboutStoryText2}
                 </p>
 
-                <div className="p-5 rounded-xl bg-gold-50 dark:bg-zinc-900 border border-gold-200/60 dark:border-zinc-800">
-                  <h4 className="font-display font-bold text-sm text-gold-800 dark:text-gold-400 mb-2">🏆 {t.aboutVisionTitle}</h4>
-                  <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">{t.aboutVisionText}</p>
+                <div className="p-5 rounded-2xl bg-white border-2 border-brand-600/30 shadow-sm">
+                  <h4 className="font-display font-bold text-sm text-zinc-900 mb-2">🏆 {t.aboutVisionTitle}</h4>
+                  <p className="text-xs text-zinc-500 leading-relaxed">{t.aboutVisionText}</p>
                 </div>
               </div>
 
@@ -1053,11 +1186,11 @@ export default function DivaGymApp() {
               </div>
 
               {/* 3 Trainers Showcase with consult actions */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 
                 {/* Trainer 1 */}
-                <div className="bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                  <div className="aspect-[3/4] relative bg-zinc-100">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border-2 border-brand-600/30 flex flex-col">
+                  <div className="aspect-[4/3] relative bg-zinc-100">
                     <img
                       src="https://picsum.photos/seed/coach_yasmin/400/500"
                       alt="Head Coach Yasmin"
@@ -1066,17 +1199,17 @@ export default function DivaGymApp() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   </div>
-                  <div className="p-5 flex-grow flex flex-col justify-between space-y-4 text-center">
+                  <div className="p-3 flex-grow flex flex-col justify-between space-y-2 text-center">
                     <div>
-                      <h4 className="font-display font-bold text-base text-zinc-900 dark:text-zinc-100">{lang === 'ar' ? 'كابتن ياسمين علي' : lang === 'ku' ? 'کابتن یاسەمین عەلی' : 'Yasmin Ali'}</h4>
-                      <p className="text-[11px] text-brand-600 dark:text-brand-400 font-bold uppercase mt-1">{t.trainer1Specialty}</p>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-3 leading-relaxed">
+                      <h4 className="font-display font-bold text-xs text-zinc-900">{lang === 'ar' ? 'كابتن ياسمين علي' : lang === 'ku' ? 'کابتن یاسەمین عەلی' : 'Yasmin Ali'}</h4>
+                      <p className="text-[9px] text-brand-600 font-bold uppercase mt-0.5">{t.trainer1Specialty}</p>
+                      <p className="text-[10px] text-zinc-500 mt-1.5 leading-relaxed">
                         {t.trainerBio} {lang === 'ar' ? 'مختصة في تصميم برامج تضخيم وحرق الدهون المكثفة بذكاء.' : lang === 'ku' ? 'شارەزا لە داڕشتنی بەرنامەی قورس و سووتاندن.' : 'Güç antrenmanları ve yağ yakımı seanslarında uzman.'}
                       </p>
                     </div>
                     <button
                       onClick={() => handleTrainerConsult(lang === 'ar' ? 'ياسمين علي' : lang === 'ku' ? 'یاسەمین' : 'Yasmin Ali', t.trainer1Specialty)}
-                      className="w-full py-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-brand-500 hover:text-white text-xs font-bold transition-all"
+                      className="w-full py-1.5 rounded-full border-2 border-brand-600/30 text-brand-600 hover:bg-brand-600 hover:text-white text-[10px] font-bold transition-all"
                     >
                       {lang === 'ar' ? 'استشارة المدربة ياسمين' : lang === 'ku' ? 'ڕاوێژ لەگەڵ یاسەمین' : 'Yasmin ile Danış'}
                     </button>
@@ -1084,8 +1217,8 @@ export default function DivaGymApp() {
                 </div>
 
                 {/* Trainer 2 */}
-                <div className="bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                  <div className="aspect-[3/4] relative bg-zinc-100">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border-2 border-brand-600/30 flex flex-col">
+                  <div className="aspect-[4/3] relative bg-zinc-100">
                     <img
                       src="https://picsum.photos/seed/coach_lara/400/500"
                       alt="Yoga Trainer Lara"
@@ -1094,17 +1227,17 @@ export default function DivaGymApp() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   </div>
-                  <div className="p-5 flex-grow flex flex-col justify-between space-y-4 text-center">
+                  <div className="p-3 flex-grow flex flex-col justify-between space-y-2 text-center">
                     <div>
-                      <h4 className="font-display font-bold text-base text-zinc-900 dark:text-zinc-100">{lang === 'ar' ? 'كابتن لارا كمال' : lang === 'ku' ? 'کابتن لارا کەمال' : 'Lara Kemal'}</h4>
-                      <p className="text-[11px] text-brand-600 dark:text-brand-400 font-bold uppercase mt-1">{t.trainer2Specialty}</p>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-3 leading-relaxed">
+                      <h4 className="font-display font-bold text-xs text-zinc-900">{lang === 'ar' ? 'كابتن لارا كمال' : lang === 'ku' ? 'کابتن لارا کەمال' : 'Lara Kemal'}</h4>
+                      <p className="text-[9px] text-brand-600 font-bold uppercase mt-0.5">{t.trainer2Specialty}</p>
+                      <p className="text-[10px] text-zinc-500 mt-1.5 leading-relaxed">
                         {t.trainerBio} {lang === 'ar' ? 'مختصة في اليوغا، البيلاتس العلاجي، تحسين المرونة وتقليل التوتر العصبي.' : lang === 'ku' ? 'پسپۆڕ لە مێدیتەیشن، یۆگا و چاککردنی بڕبڕەی پشت.' : 'Yoga ve pilates terapilerinde derinlemesine uzmanlığa sahip.'}
                       </p>
                     </div>
                     <button
                       onClick={() => handleTrainerConsult(lang === 'ar' ? 'لارا كمال' : lang === 'ku' ? 'لارا' : 'Lara Kemal', t.trainer2Specialty)}
-                      className="w-full py-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-brand-500 hover:text-white text-xs font-bold transition-all"
+                      className="w-full py-1.5 rounded-full border-2 border-brand-600/30 text-brand-600 hover:bg-brand-600 hover:text-white text-[10px] font-bold transition-all"
                     >
                       {lang === 'ar' ? 'استشارة المدربة لارا' : lang === 'ku' ? 'ڕاوێژ لەگەڵ لارا' : 'Lara ile Danış'}
                     </button>
@@ -1112,8 +1245,8 @@ export default function DivaGymApp() {
                 </div>
 
                 {/* Trainer 3 */}
-                <div className="bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                  <div className="aspect-[3/4] relative bg-zinc-100">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border-2 border-brand-600/30 flex flex-col">
+                  <div className="aspect-[4/3] relative bg-zinc-100">
                     <img
                       src="https://picsum.photos/seed/coach_ronahi/400/500"
                       alt="Nutrition Trainer Ronahi"
@@ -1122,17 +1255,17 @@ export default function DivaGymApp() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   </div>
-                  <div className="p-5 flex-grow flex flex-col justify-between space-y-4 text-center">
+                  <div className="p-3 flex-grow flex flex-col justify-between space-y-2 text-center">
                     <div>
-                      <h4 className="font-display font-bold text-base text-zinc-900 dark:text-zinc-100">{lang === 'ar' ? 'كابتن روناهي مراد' : lang === 'ku' ? 'کابتن ڕۆناهی موراد' : 'Ronahi Murad'}</h4>
-                      <p className="text-[11px] text-brand-600 dark:text-brand-400 font-bold uppercase mt-1">{t.trainer3Specialty}</p>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-3 leading-relaxed">
+                      <h4 className="font-display font-bold text-xs text-zinc-900">{lang === 'ar' ? 'كابتن روناهي مراد' : lang === 'ku' ? 'کابتن ڕۆناهی موراد' : 'Ronahi Murad'}</h4>
+                      <p className="text-[9px] text-brand-600 font-bold uppercase mt-0.5">{t.trainer3Specialty}</p>
+                      <p className="text-[10px] text-zinc-500 mt-1.5 leading-relaxed">
                         {t.trainerBio} {lang === 'ar' ? 'مختصة في التغذية وصياغة برامج التوازن الهرموني والتنشيف لجميع الأعمار.' : lang === 'ku' ? 'ڕێکخستنی سیستەمی خۆراکی تەندروست بۆ هۆرمۆن و جەستە.' : 'Diyetisyenlik ve hormonal dengeye uyumlu beslenme uzmanı.'}
                       </p>
                     </div>
                     <button
                       onClick={() => handleTrainerConsult(lang === 'ar' ? 'روناهي مراد' : lang === 'ku' ? 'ڕۆناهی' : 'Ronahi Murad', t.trainer3Specialty)}
-                      className="w-full py-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-brand-500 hover:text-white text-xs font-bold transition-all"
+                      className="w-full py-1.5 rounded-full border-2 border-brand-600/30 text-brand-600 hover:bg-brand-600 hover:text-white text-[10px] font-bold transition-all"
                     >
                       {lang === 'ar' ? 'استشارة المدربة روناهي' : lang === 'ku' ? 'ڕاوێژ لەگەڵ ڕۆناهی' : 'Ronahi ile Danış'}
                     </button>
@@ -1142,12 +1275,19 @@ export default function DivaGymApp() {
               </div>
             </div>
 
-          </div>
+          </motion.div>
         )}
 
         {/* --- SECTION: CONTACT FORM & ADMIN INBOX --- */}
         {activeTab === 'contact' && (
-          <div className="space-y-12 animate-fade-in" id="section-contact">
+          <motion.div 
+            key="contact"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="space-y-12" id="section-contact"
+          >
             
             {/* Title */}
             <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -1159,16 +1299,13 @@ export default function DivaGymApp() {
               </p>
             </div>
 
-            {/* Split layout: Form (User) vs Submissions Viewer (Admin Inbox) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              
-              {/* Form panel */}
-              <div className="lg:col-span-6 bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl p-6 md:p-8 shadow-sm">
+            {/* Contact Form */}
+              <div className="max-w-2xl mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-sm border-2 border-brand-600/30">
                 
                 {/* Success Banner */}
                 {submitSuccess && (
-                  <div className="mb-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs flex items-start space-x-2 rtl:space-x-reverse">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="mb-6 p-4 rounded-xl bg-green-50 border border-green-200 text-green-700 text-xs flex items-start space-x-2 rtl:space-x-reverse">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-bold">{lang === 'ar' ? 'نجاح!' : lang === 'ku' ? 'سەرکەوتوو بوو!' : 'Başarılı!'}</p>
                       <p className="mt-1 leading-relaxed">{t.contactSuccessMsg}</p>
@@ -1180,8 +1317,8 @@ export default function DivaGymApp() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Name */}
                     <div>
-                      <label className="block text-xs font-bold uppercase text-zinc-500 dark:text-zinc-400 mb-1.5">
-                        {t.contactFieldName} <span className="text-red-500">*</span>
+                      <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5">
+                        {t.contactFieldName} <span className="text-brand-600">*</span>
                       </label>
                       <input
                         type="text"
@@ -1189,14 +1326,14 @@ export default function DivaGymApp() {
                         value={formName}
                         onChange={(e) => setFormName(e.target.value)}
                         placeholder={t.contactPlaceholderName}
-                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/50 focus:border-brand-500 focus:bg-white dark:focus:bg-zinc-800 text-sm transition-all outline-none"
+                        className="w-full px-4 py-2.5 rounded-xl border-2 border-brand-600/30 bg-white focus:border-brand-600 text-zinc-900 placeholder-zinc-400 text-sm transition-all outline-none"
                       />
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label className="block text-xs font-bold uppercase text-zinc-500 dark:text-zinc-400 mb-1.5">
-                        {t.contactFieldPhone} <span className="text-red-500">*</span>
+                      <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5">
+                        {t.contactFieldPhone} <span className="text-brand-600">*</span>
                       </label>
                       <input
                         type="tel"
@@ -1204,14 +1341,14 @@ export default function DivaGymApp() {
                         value={formPhone}
                         onChange={(e) => setFormPhone(e.target.value)}
                         placeholder={t.contactPlaceholderPhone}
-                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/50 focus:border-brand-500 focus:bg-white dark:focus:bg-zinc-800 text-sm transition-all outline-none animate-none"
+                        className="w-full px-4 py-2.5 rounded-xl border-2 border-brand-600/30 bg-white focus:border-brand-600 text-zinc-900 placeholder-zinc-400 text-sm transition-all outline-none animate-none"
                       />
                     </div>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-zinc-500 dark:text-zinc-400 mb-1.5">
+                    <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5">
                       {t.contactFieldMessage}
                     </label>
                     <textarea
@@ -1219,7 +1356,7 @@ export default function DivaGymApp() {
                       value={formMessage}
                       onChange={(e) => setFormMessage(e.target.value)}
                       placeholder={t.contactPlaceholderMessage}
-                      className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/50 focus:border-brand-500 focus:bg-white dark:focus:bg-zinc-800 text-sm transition-all outline-none resize-none"
+                      className="w-full px-4 py-2.5 rounded-xl border-2 border-brand-600/30 bg-white focus:border-brand-600 text-zinc-900 placeholder-zinc-400 text-sm transition-all outline-none resize-none"
                     />
                   </div>
 
@@ -1227,7 +1364,7 @@ export default function DivaGymApp() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 rounded-full bg-gradient-to-r from-brand-600 to-gold-500 text-white font-bold text-sm shadow-sm hover:shadow-md hover:shadow-brand-500/15 flex items-center justify-center space-x-2 rtl:space-x-reverse disabled:opacity-50 transition-all duration-200"
+                    className="w-full py-3.5 rounded-full border-2 border-brand-600/30 text-brand-600 font-bold text-sm hover:bg-brand-600 hover:text-white flex items-center justify-center space-x-2 rtl:space-x-reverse disabled:opacity-50 transition-all duration-200"
                     id="contact-submit-btn"
                   >
                     {isSubmitting ? (
@@ -1246,93 +1383,21 @@ export default function DivaGymApp() {
 
               </div>
 
-              {/* Real-time Submissions box (Gym Owner Inbox Dashboard) */}
-              <div className="lg:col-span-6 space-y-6">
-                <div className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl p-6 shadow-inner space-y-4">
-                  <div className="flex items-center justify-between border-b border-zinc-200/60 dark:border-zinc-800 pb-3">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse text-brand-600">
-                      <Mail className="w-5 h-5 text-brand-500" />
-                      <h3 className="font-display font-extrabold text-sm uppercase tracking-wide">
-                        {t.contactAdminSection}
-                      </h3>
-                    </div>
-                    <span className="text-[10px] bg-brand-200 dark:bg-brand-950 px-2.5 py-0.5 rounded-full font-bold text-brand-800 dark:text-brand-300">
-                      {contactSubmissions.length} {lang === 'ar' ? 'رسائل' : lang === 'ku' ? 'نامە' : 'Mesaj'}
-                    </span>
-                  </div>
-
-                  {contactSubmissions.length === 0 ? (
-                    <div className="text-center py-12 space-y-2 text-zinc-400 dark:text-zinc-500">
-                      <AlertCircle className="w-8 h-8 mx-auto stroke-1" />
-                      <p className="text-xs max-w-xs mx-auto leading-relaxed">
-                        {t.contactAdminNoSubmissions}
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="space-y-4 max-h-[420px] overflow-y-auto pr-1">
-                      {contactSubmissions.map((sub) => (
-                        <div
-                          key={sub.id}
-                          className="p-4 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-700 shadow-sm space-y-2 relative group"
-                          id={`admin-submission-item-${sub.id}`}
-                        >
-                          {/* Absolute Delete Button for easy management */}
-                          <button
-                            onClick={() => handleDeleteSubmission(sub.id)}
-                            className="absolute top-3 right-3 rtl:left-3 rtl:right-auto text-zinc-400 hover:text-red-500 p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-750 transition-colors"
-                            title="Delete submission"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-
-                          <div className="text-[10px] text-zinc-400 font-semibold">{sub.date}</div>
-                          
-                          <div className="grid grid-cols-2 gap-2 pr-6 rtl:pl-6 rtl:pr-0">
-                            <div>
-                              <span className="block text-[10px] uppercase font-bold text-zinc-400">{t.contactAdminTableName}</span>
-                              <span className="text-xs font-bold text-zinc-900 dark:text-zinc-100">{sub.name}</span>
-                            </div>
-                            <div>
-                              <span className="block text-[10px] uppercase font-bold text-zinc-400">{t.contactAdminTablePhone}</span>
-                              <span className="text-xs font-mono font-bold">{sub.phone}</span>
-                            </div>
-                          </div>
-
-                          <div className="grid grid-cols-1 gap-2 border-t border-zinc-100 dark:border-zinc-700/50 pt-2 text-xs">
-                            <div>
-                              <span className="inline-block text-[10px] bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-300 font-bold px-2 py-0.5 rounded mr-1 ml-1 leading-none">
-                                {sub.subject}
-                              </span>
-                            </div>
-                            <p className="text-xs text-zinc-600 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900 p-2.5 rounded-lg border border-zinc-100 dark:border-zinc-800 italic leading-relaxed">
-                              &ldquo;{sub.message}&rdquo;
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-            </div>
-
-          </div>
+          </motion.div>
         )}
 
+        </AnimatePresence>
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="w-full bg-zinc-900 text-zinc-400 py-12 px-4 border-t border-zinc-800 transition-colors duration-300 mt-16" id="diva-footer">
+      <footer className="w-full bg-white text-zinc-500 py-12 px-4 border-t-2 border-brand-600 mt-16" id="diva-footer">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Logo Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3 rtl:space-x-reverse">
-              <div className="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold text-sm">
-                D
-              </div>
-              <span className="font-display text-xl font-bold tracking-tight text-white">Diva Gym</span>
+              <img src="/icon.png" alt="Diva Gym" className="w-10 h-10 object-contain" />
+              <span className="font-display text-xl font-bold tracking-tight text-brand-600">{lang === 'ar' ? 'ديڤا جيم' : lang === 'ku' ? 'دیڤا جیم' : 'Diva Gym'}</span>
             </div>
             <p className="text-xs text-zinc-500 leading-relaxed max-w-sm">
               {lang === 'ar' 
@@ -1345,25 +1410,25 @@ export default function DivaGymApp() {
 
           {/* Links Quick navigations */}
           <div>
-            <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-4">{lang === 'ar' ? 'أقسام الموقع' : lang === 'ku' ? 'بەشەکان' : 'Hızlı Menü'}</h4>
+            <h4 className="text-brand-600 text-xs font-bold uppercase tracking-wider mb-4">{lang === 'ar' ? 'أقسام الموقع' : lang === 'ku' ? 'بەشەکان' : 'Hızlı Menü'}</h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => { setActiveTab('home'); window.scrollTo(0,0); }} className="hover:text-brand-400 transition-colors">
+                <button onClick={() => { setActiveTab('home'); window.scrollTo(0,0); }} className="text-zinc-500 hover:text-brand-600 transition-colors">
                   {t.navHome}
                 </button>
               </li>
               <li>
-                <button onClick={() => { setActiveTab('offers'); window.scrollTo(0,0); }} className="hover:text-brand-400 transition-colors">
+                <button onClick={() => { setActiveTab('offers'); window.scrollTo(0,0); }} className="text-zinc-500 hover:text-brand-600 transition-colors">
                   {t.navOffers}
                 </button>
               </li>
               <li>
-                <button onClick={() => { setActiveTab('hours'); window.scrollTo(0,0); }} className="hover:text-brand-400 transition-colors">
+                <button onClick={() => { setActiveTab('hours'); window.scrollTo(0,0); }} className="text-zinc-500 hover:text-brand-600 transition-colors">
                   {t.navHours}
                 </button>
               </li>
               <li>
-                <button onClick={() => { setActiveTab('services'); window.scrollTo(0,0); }} className="hover:text-brand-400 transition-colors">
+                <button onClick={() => { setActiveTab('services'); window.scrollTo(0,0); }} className="text-zinc-500 hover:text-brand-600 transition-colors">
                   {t.navServices}
                 </button>
               </li>
@@ -1372,28 +1437,34 @@ export default function DivaGymApp() {
 
           {/* Location and address */}
           <div>
-            <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-4">{lang === 'ar' ? 'العنوان والاتصال' : lang === 'ku' ? 'ناونیشان و پەیوەندی' : 'İletişim & Adres'}</h4>
-            <ul className="space-y-2.5 text-xs text-zinc-500">
-              <li className="flex items-start space-x-2 rtl:space-x-reverse">
-                <span className="shrink-0 text-zinc-400">📍</span>
-                <span>
-                  {lang === 'ar' ? 'شارع سالم، مقابل مول السليمانية، السليمانية، العراق' : lang === 'ku' ? 'شەقامی سالم، بەرامبەر سلێمانی مۆڵ، سلێمانی' : 'Salim Caddesi, Süleymaniye Mall Karşısı, Süleymaniye'}
+            <h4 className="text-brand-600 text-xs font-bold uppercase tracking-wider mb-4">{lang === 'ar' ? 'العنوان' : lang === 'ku' ? 'ناونیشان' : 'Adres'}</h4>
+            <div className="space-y-2 text-xs text-zinc-500">
+              <div className="flex items-start">
+                <span className="leading-relaxed">
+                  {lang === 'ar' ? 'كركوك، طريق بغداد' : lang === 'ku' ? 'کەرکووک، شەقامی بەغداد' : 'Kerkük, Bağdat Yolu'}
                 </span>
-              </li>
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <Phone className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-                <span className="font-mono">+964 770 123 4567</span>
-              </li>
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <Mail className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-                <span className="font-mono">info@divagym.com</span>
-              </li>
-            </ul>
+              </div>
+              <div className="flex items-start">
+                <span className="leading-relaxed">
+                  {lang === 'ar' ? 'مقابل حلويات بيت الشكرجي' : lang === 'ku' ? 'بەرامبەر شیرینی خانی شکرجی' : 'Şikarji Pastanesi Karşısı'}
+                </span>
+              </div>
+              <div className="flex items-start">
+                <span className="leading-relaxed">
+                  {lang === 'ar' ? 'مجمع الهرم، الطابق الثاني' : lang === 'ku' ? 'مەجموعەی هێرم، ناوەندی ٢' : 'Hiram AVM, 2. Kat'}
+                </span>
+              </div>
+            </div>
+            <div className="mt-4">
+              <a href="https://www.instagram.com/divagymkr/" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-brand-600 transition-colors">
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
         </div>
 
-        <div className="max-w-7xl mx-auto border-t border-zinc-800/80 mt-12 pt-6 text-center text-[10px] text-zinc-600 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto border-t border-zinc-200 mt-12 pt-6 text-center text-[10px] text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© 2026 Diva Gym. {lang === 'ar' ? 'جميع الحقوق محفوظة.' : lang === 'ku' ? 'هەموو مافەکان پارێزراون.' : 'Tüm hakları saklıdır.'}</p>
           <p>{lang === 'ar' ? 'مصمم بكل حب لتمكين المرأة وصحتها.' : lang === 'ku' ? 'بە خۆشەویستییەوە دیزاین کراوە بۆ خانمان.' : 'Kadınların gücünü ve sağlığını desteklemek için sevgiyle tasarlanmıştır.'}</p>
         </div>
