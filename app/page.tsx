@@ -581,11 +581,11 @@ export default function DivaGymApp() {
 
               {/* Image Area */}
               <div className="lg:col-span-5 relative">
-                <div className="relative w-full rounded-2xl shadow-lg">
+                <div className="relative w-full">
                   <img
                   src={img('/preview2.png')}
                   alt="Diva Gym"
-                  className="w-full h-auto rounded-2xl"
+                  className="w-full h-auto"
                     id="hero-image-display"
                   />
                 </div>
