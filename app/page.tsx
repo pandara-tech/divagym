@@ -581,22 +581,14 @@ export default function DivaGymApp() {
 
               {/* Image Area */}
               <div className="lg:col-span-5 relative">
-                <div className="relative z-10 w-full aspect-[4/3] sm:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-lg">
+                <div className="relative w-full rounded-2xl shadow-lg">
                   <img
-                    src={img('/preview2.png')}
+                  src={img('/preview.png')}
                     alt="Luxury Diva Gym Interior"
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto rounded-2xl"
                     id="hero-image-display"
                   />
-                  
-                  {/* Subtle Gold/Pink Ambient Layer */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                  
                 </div>
-                
-                {/* Decorative backgrounds */}
-                <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-200 dark:bg-brand-900/30 rounded-full blur-3xl -z-10" />
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gold-200 dark:bg-gold-900/20 rounded-full blur-3xl -z-10" />
               </div>
             </div>
 
@@ -1167,7 +1159,7 @@ export default function DivaGymApp() {
 
               <div className="lg:col-span-6 relative aspect-video sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-zinc-200 dark:border-zinc-800">
                 <img
-                  src={img('/preview2.png')}
+                  src={img('/preview.png')}
                   alt="Diva Gym fitness atmosphere"
                   className="w-full h-full object-cover"
                   id="about-image-display"
@@ -1204,17 +1196,17 @@ export default function DivaGymApp() {
                   </div>
                   <div className="p-3 flex-grow flex flex-col justify-between space-y-2 text-center">
                     <div>
-                      <h4 className="font-display font-bold text-xs text-zinc-900">{lang === 'ar' ? 'كابتن ياسمين علي' : lang === 'ku' ? 'کابتن یاسەمین عەلی' : 'Yasmin Ali'}</h4>
+                      <h4 className="font-display font-bold text-xs text-zinc-900">{lang === 'ar' ? 'كابتن فرح' : lang === 'ku' ? 'کابتن فرح' : 'Farah'}</h4>
                       <p className="text-[9px] text-brand-600 font-bold uppercase mt-0.5">{t.trainer1Specialty}</p>
                       <p className="text-[10px] text-zinc-500 mt-1.5 leading-relaxed">
                         {t.trainerBio} {lang === 'ar' ? 'مختصة في تصميم برامج تضخيم وحرق الدهون المكثفة بذكاء.' : lang === 'ku' ? 'شارەزا لە داڕشتنی بەرنامەی قورس و سووتاندن.' : 'Güç antrenmanları ve yağ yakımı seanslarında uzman.'}
                       </p>
                     </div>
                     <button
-                      onClick={() => handleTrainerConsult(lang === 'ar' ? 'ياسمين علي' : lang === 'ku' ? 'یاسەمین' : 'Yasmin Ali', t.trainer1Specialty)}
+                      onClick={() => handleTrainerConsult(lang === 'ar' ? 'فرح' : lang === 'ku' ? 'فرح' : 'Farah', t.trainer1Specialty)}
                       className="w-full py-1.5 rounded-full border-2 border-brand-600/30 text-brand-600 hover:bg-brand-600 hover:text-white text-[10px] font-bold transition-all"
                     >
-                      {lang === 'ar' ? 'استشارة المدربة ياسمين' : lang === 'ku' ? 'ڕاوێژ لەگەڵ یاسەمین' : 'Yasmin ile Danış'}
+                      {lang === 'ar' ? 'استشارة المدربة فرح' : lang === 'ku' ? 'ڕاوێژ لەگەڵ فرح' : 'Farah ile Danış'}
                     </button>
                   </div>
                 </div>
@@ -1232,17 +1224,17 @@ export default function DivaGymApp() {
                   </div>
                   <div className="p-3 flex-grow flex flex-col justify-between space-y-2 text-center">
                     <div>
-                      <h4 className="font-display font-bold text-xs text-zinc-900">{lang === 'ar' ? 'كابتن لارا كمال' : lang === 'ku' ? 'کابتن لارا کەمال' : 'Lara Kemal'}</h4>
+                      <h4 className="font-display font-bold text-xs text-zinc-900">{lang === 'ar' ? 'كابتن بسمة' : lang === 'ku' ? 'کابتن بەسمە' : 'Basma'}</h4>
                       <p className="text-[9px] text-brand-600 font-bold uppercase mt-0.5">{t.trainer2Specialty}</p>
                       <p className="text-[10px] text-zinc-500 mt-1.5 leading-relaxed">
                         {t.trainerBio} {lang === 'ar' ? 'مختصة في اليوغا، البيلاتس العلاجي، تحسين المرونة وتقليل التوتر العصبي.' : lang === 'ku' ? 'پسپۆڕ لە مێدیتەیشن، یۆگا و چاککردنی بڕبڕەی پشت.' : 'Yoga ve pilates terapilerinde derinlemesine uzmanlığa sahip.'}
                       </p>
                     </div>
                     <button
-                      onClick={() => handleTrainerConsult(lang === 'ar' ? 'لارا كمال' : lang === 'ku' ? 'لارا' : 'Lara Kemal', t.trainer2Specialty)}
+                      onClick={() => handleTrainerConsult(lang === 'ar' ? 'بسمة' : lang === 'ku' ? 'بەسمە' : 'Basma', t.trainer2Specialty)}
                       className="w-full py-1.5 rounded-full border-2 border-brand-600/30 text-brand-600 hover:bg-brand-600 hover:text-white text-[10px] font-bold transition-all"
                     >
-                      {lang === 'ar' ? 'استشارة المدربة لارا' : lang === 'ku' ? 'ڕاوێژ لەگەڵ لارا' : 'Lara ile Danış'}
+                      {lang === 'ar' ? 'استشارة المدربة بسمة' : lang === 'ku' ? 'ڕاوێژ لەگەڵ بەسمە' : 'Basma ile Danış'}
                     </button>
                   </div>
                 </div>
