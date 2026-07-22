@@ -1168,7 +1168,7 @@ export default function DivaGymApp() {
 
               <div className="lg:col-span-6 relative aspect-video sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-zinc-200 dark:border-zinc-800">
                 <img
-                  src={img('/preview.png')}
+                  src={img('/preview2.png')}
                   alt="Diva Gym fitness atmosphere"
                   className="w-full h-full object-cover"
                   id="about-image-display"
