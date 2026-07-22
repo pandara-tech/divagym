@@ -19,8 +19,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    loader: 'custom',
-    path: '/divagym/_next/image',
   },
   output: 'export',
   trailingSlash: true,

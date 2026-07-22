@@ -4,3 +4,10 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+
+const BASE_PATH = '/divagym';
+
+export function img(path: string): string {
+  if (path.startsWith('http')) return path;
+  return `${BASE_PATH}${path}`;
+}

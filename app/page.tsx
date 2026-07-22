@@ -35,6 +35,7 @@ import {
   ShoppingBag
 } from 'lucide-react';
 import { translations, Language } from '@/lib/translations';
+import { img } from '@/lib/utils';
 
 interface Submission {
   id: string;
@@ -376,7 +377,7 @@ export default function DivaGymApp() {
             onClick={() => setActiveTab('home')}
             id="header-logo-container"
           >
-            <img src="/icon.png" alt="Diva Gym" className="w-10 h-10 object-contain" />
+            <img src={img('/icon.png')} alt="Diva Gym" className="w-10 h-10 object-contain" />
             <span className="text-2xl tracking-tight text-brand-600" style={{ fontFamily: 'var(--font-great-vibes), cursive' }}>
               Diva Gym
             </span>
@@ -580,7 +581,7 @@ export default function DivaGymApp() {
               <div className="lg:col-span-5 relative">
                 <div className="relative z-10 w-full aspect-[4/3] sm:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-600 shadow-brand-900/10">
                   <img
-                    src="/preview.png"
+                    src={img('/preview.png')}
                     alt="Luxury Diva Gym Interior"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
@@ -1396,7 +1397,7 @@ export default function DivaGymApp() {
           {/* Logo Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src="/icon.png" alt="Diva Gym" className="w-10 h-10 object-contain" />
+              <img src={img('/icon.png')} alt="Diva Gym" className="w-10 h-10 object-contain" />
               <span className="font-display text-xl font-bold tracking-tight text-brand-600">{lang === 'ar' ? 'ديڤا جيم' : lang === 'ku' ? 'دیڤا جیم' : 'Diva Gym'}</span>
             </div>
             <p className="text-xs text-zinc-500 leading-relaxed max-w-sm">

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: 'Diva Gym',
   description: 'Diva Gym is a premium women-only fitness and wellness club offering state-of-the-art training, luxury spa, sauna, classes, and personalized nutrition plans.',
   icons: {
-    icon: '/icon.png',
+    icon: '/divagym/icon.png',
   },
 };
 
