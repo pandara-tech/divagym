@@ -583,9 +583,9 @@ export default function DivaGymApp() {
               <div className="lg:col-span-5 relative">
                 <div className="relative w-full rounded-2xl shadow-lg">
                   <img
-                  src={img('/preview.png')}
-                    alt="Luxury Diva Gym Interior"
-                    className="w-full h-auto rounded-2xl"
+                  src={img('/preview2.png')}
+                  alt="Diva Gym"
+                  className="w-full h-auto rounded-2xl"
                     id="hero-image-display"
                   />
                 </div>
